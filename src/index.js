@@ -1,12 +1,26 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { ThemeProvider } from 'styled-components';
+// import ThemeProvider from '@src/components/ThemeProvider';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import RootRouter from './router';
+import store from './store';
+// import '@src/config/i18n';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const rootElement = document.getElementById('root');
+
+const App = () => (
+  <Provider store={store}>
+    <ThemeProvider theme={{ color: 'mediumseagreen' }}>
+      <RootRouter />
+    </ThemeProvider>
+  </Provider>
+);
+
+render(<App />, rootElement);
+// if (rootElement.hasChildNodes()) {
+//   hydrate(<App />, rootElement);
+// } else {
+// }
+// render(<App />, document.getElementById('root'));

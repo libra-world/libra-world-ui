@@ -1,0 +1,36 @@
+import React, { Suspense, lazy, PureComponent } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import ErrorBoundary from '@src/components/ErrorBoundary';
+import Layout from '@src/layout';
+import Loading from '@src/components/Loading';
+
+// import FakeLogin from './pages/fakelogin';
+
+const HomePage = lazy(() => import('./pages/Home'));
+const AddressInformation = lazy(() => import('./pages/AddressInformation'));
+
+export default class RootRouter extends PureComponent {
+  async componentDidMount() {
+    const test = 'xxx';
+    console.log('test', test);
+  }
+
+  render() {
+    return (
+      <Router>
+        <Switch>
+          {/* <Route exact={false} path="/fakelogin" component={FakeLogin} /> */}
+          <ErrorBoundary>
+            <Layout>
+              <Suspense fallback={<Loading />}>
+                <Route exact={true} path="/" component={HomePage} />
+                <Route exact={true} path="/:locale" component={HomePage} />
+                <Route path="/:locale/address" component={AddressInformation} />
+              </Suspense>
+            </Layout>
+          </ErrorBoundary>
+        </Switch>
+      </Router>
+    );
+  }
+}
