@@ -1,15 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Header from './Header';
 
 function Index({ children }) {
   return (
     <div className="wrapper">
-      <header>
-        <ul>
-          <Link to="/en">home</Link>
-          <Link to="/en/address">address info</Link>
-        </ul>
-      </header>
+      <Header />
       <main>{children}</main>
     </div>
   );

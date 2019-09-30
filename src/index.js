@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 // import ThemeProvider from '@src/components/ThemeProvider';
+import './static/css/override.css';
 
 import RootRouter from './router';
 import store from './store';
