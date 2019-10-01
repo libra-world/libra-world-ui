@@ -1,18 +1,55 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Box, Flex } from '@libra-world-uikit/uikit';
+import styled from 'styled-components';
+import { Box, Flex, Input } from '@src/components/uikit';
+
+const NavBox = styled(Flex)`
+  a {
+    color: #fff;
+    margin: 0 20px;
+  }
+`;
 
 function Header() {
   return (
-    <Flex display="flex" as="header" px="40px" height="100px" alignItems="center" width="100%">
-      <Box>logo</Box>
-      <Flex display="flex" flex="1" justifyContent="center">
-        <ul>
-          <Link to="/en">home</Link>
-          <Link to="/en/address">address info</Link>
-        </ul>
+    <Flex
+      bg="black"
+      as="header"
+      px="40px"
+      height="100px"
+      alignItems="center"
+      width="100%"
+      color="white"
+    >
+      <Box width="290px">logo</Box>
+      <NavBox flex="1" justifyContent="center" alignItems="center">
+        <Link to="/en">home</Link>
+        <Link to="/en/address">address info</Link>
+      </NavBox>
+      <Flex width="290px" alignItems="center">
+        mainnet
+        <Input
+          placeholder="Search tx/block/address"
+          value=""
+          id="test"
+          ariaLabel="string"
+          vertical={false}
+          isActive={true}
+          rtl={false}
+          suffixAddon={<Box mx="8px">.com</Box>}
+          onChange={val => {
+            console.log(val);
+          }}
+          theme={{
+            inputLabelTheme: {
+              border: '1px solid #222',
+              bg: '#222',
+              py: '12px',
+              pl: '20px',
+            },
+          }}
+        />
       </Flex>
-      <Flex>mainnet textfield</Flex>
     </Flex>
   );
 }
