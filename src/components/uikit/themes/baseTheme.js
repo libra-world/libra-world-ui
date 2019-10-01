@@ -57,4 +57,5 @@ export default {
   fontSizes,
   space,
   radii,
+  breakpoints: ['768px', '992px', '1260px'],
 };

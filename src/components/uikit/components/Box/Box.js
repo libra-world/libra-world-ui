@@ -10,6 +10,7 @@ import {
   top,
   width,
   zIndex,
+  color,
 } from 'styled-system';
 import styled from 'styled-components';
 
@@ -23,7 +24,8 @@ const composeBoxStyles = compose(
   left,
   right,
   bottom,
-  zIndex
+  zIndex,
+  color
 );
 
 const Box = styled('div')`
