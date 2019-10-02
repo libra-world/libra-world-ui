@@ -12,6 +12,10 @@ const TickersListStyled = styled(List)`
       display: none;
     }
   }
+  .ReactVirtualized__Grid__innerScrollContainer > a:not(:last-child) {
+    border-bottom: 1px solid #f7f8fa;
+  }
+
   /* push the scrollbar off-screen in firefox for windows */
   @supports (-moz-appearance: none) {
     &.ReactVirtualized__Grid {

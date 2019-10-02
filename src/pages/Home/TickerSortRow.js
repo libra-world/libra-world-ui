@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 const TickerSortRowStyled = styled.div`
   font-size: 14px;
-  color: #48515d;
+  color: ${({ theme }) => theme.colors.lightGray};
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -15,18 +15,18 @@ const TickerSortRowStyled = styled.div`
     overflow: hidden;
   }
   .at {
-    flex: 0 1 130px;
+    flex: 0 1 170px;
     padding-left: 8px;
   }
   .hi {
-    flex: 0 1 230px;
+    flex: 0 1 570px;
     padding-left: 8px;
   }
   .ts {
-    flex: 0 1 100px;
+    flex: 0 1 120px;
   }
   .dt {
-    flex: 0 1 100px;
+    flex: 0 1 130px;
   }
   & > div {
     display: flex;

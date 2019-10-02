@@ -4,7 +4,11 @@ import BgCard from '@src/pages/Home/BgCard';
 import { Box } from '@src/components/uikit';
 import TickerSortRow from '@src/pages/Home/TickerSortRow';
 import TickersList from '@src/pages/Home/TickersList';
+import Summary from '@src/pages/Home/Summary';
 
+const MarketBox = styled(Box)`
+  box-shadow: ${({ theme }) => theme.colors.boxShadow};
+`;
 const TickersListStyled = styled(Box)`
   overflow: hidden;
 `;
@@ -36,18 +40,19 @@ function HomePage() {
   return (
     <>
       <BgCard />
-      <TickerSortRow
-        onSortChange={setSortObj}
-        sortBy={sortObj.sortBy}
-        sortDirection={sortObj.sortDirection}
-      />
-      <TickersListStyled
-        width={['600px', '600px', '1200px']}
-        m="0 auto"
-        height={tickers.length < 15 ? `${tickers.length * ROW_HEIGHT}px` : '1000px'}
-      >
-        <TickersList tickers={tickers} onRowClick={onRowClick} />
-      </TickersListStyled>
+      <Summary />
+      <MarketBox width={['600px', '600px', '1200px']} m="0 auto 140px" p="26px 40px 20px">
+        <TickerSortRow
+          onSortChange={setSortObj}
+          sortBy={sortObj.sortBy}
+          sortDirection={sortObj.sortDirection}
+        />
+        <TickersListStyled
+          height={tickers.length < 15 ? `${tickers.length * ROW_HEIGHT}px` : '1000px'}
+        >
+          <TickersList tickers={tickers} onRowClick={onRowClick} />
+        </TickersListStyled>
+      </MarketBox>
     </>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
+import SortIndicator from '@src/pages/Home/SortIndicator';
 
 const TickerRowStyled = styled.div`
   font-size: 18px;
@@ -8,33 +9,32 @@ const TickerRowStyled = styled.div`
   display: flex;
   align-items: center;
   padding: 0 16px;
-  border-bottom: 1px solid #000;
-
-  .name-vol {
+  .bh {
     flex: 0 1 140px;
     overflow: hidden;
   }
-
-  .last-price {
-    flex: 0 1 130px;
+  .at {
+    flex: 0 1 170px;
     padding-left: 8px;
-
-    .fiat-price {
-      color: #848e9c;
-      font-size: 14px;
-    }
   }
-
-  .day-change {
-    flex: 0 1 100px;
-    font-size: 16px;
+  .hi {
+    flex: 0 1 570px;
+    padding-left: 8px;
+  }
+  .ts {
+    flex: 0 1 120px;
+  }
+  .dt {
+    flex: 0 1 130px;
+  }
+  & > div {
+    display: flex;
+    align-items: center;
   }
 `;
 
 export default React.memo(function TickerRow({ ticker }) {
   const { t } = useTranslation();
-  const prevPriceRef = useRef(ticker.c);
-  const prevPrice = prevPriceRef.current;
   const {
     ts: tickSize,
     s: symbol,
@@ -47,16 +47,13 @@ export default React.memo(function TickerRow({ ticker }) {
     isFavorite,
   } = ticker;
 
-  prevPriceRef.current = close;
-
   return (
     <TickerRowStyled>
-      <div className="name-vol">
-        <strong>{baseAsset}</strong>
-        <span> / {quoteAsset}</span>
-      </div>
-      <div className="last-price">ssss</div>
-      <div className="day-change">xxx</div>
+      <div className="bh">{baseAsset}</div>
+      <div className="at">{quoteAsset}</div>
+      <div className="hi"></div>
+      <div className="ts"></div>
+      <div className="dt"></div>
     </TickerRowStyled>
   );
 });

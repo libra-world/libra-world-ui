@@ -5,6 +5,7 @@
   "dependencies": {
     "@rematch/core": "^1.2.0",
     "@rematch/loading": "^1.1.3",
+    "@styled-system/css": "^5.0.23",
     "color": "latest",
     "husky": "^3.0.5",
     "i18next": "^17.0.16",

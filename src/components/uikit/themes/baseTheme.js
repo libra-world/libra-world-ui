@@ -4,7 +4,7 @@ const colors = {
   grays: ['#848E9C', '#2a2f37', '#12161C', '#1b2027'],
   darkGray: '#12161C',
   gray: '#848E9C',
-  lightGray: '#EAECEF',
+  lightGray: '#c1c1c1',
   red: '#F23051',
   pink: '#FF0372',
   green: '#00C582',

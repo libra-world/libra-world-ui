@@ -11,6 +11,15 @@ import {
   width,
   zIndex,
   color,
+  layout,
+  typography,
+  border,
+  shadow,
+  borderRadius,
+  order,
+  flex,
+  alignSelf,
+  justifyContent,
 } from 'styled-system';
 import styled from 'styled-components';
 
@@ -25,7 +34,16 @@ const composeBoxStyles = compose(
   right,
   bottom,
   zIndex,
-  color
+  color,
+  layout,
+  typography,
+  borderRadius,
+  order,
+  flex,
+  alignSelf,
+  justifyContent,
+  border,
+  shadow
 );
 
 const Box = styled('div')`

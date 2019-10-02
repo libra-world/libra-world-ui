@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import * as React from 'react';
 import styled from 'styled-components';
 
-const fillColor = '#F0B90B';
-const defaultColor = '#48515D';
+const fillColor = '#48515D';
+const defaultColor = '#c1c1c1';
 const SortIndicatorStyled = styled.div`
   display: flex;
   align-items: center;
