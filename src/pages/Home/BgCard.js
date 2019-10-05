@@ -1,13 +1,14 @@
 import React from 'react';
 import { Box, Button, Input } from '@src/components/uikit';
+import libra from '@src/static/images/libra.jpeg';
 
 function BgCard(props) {
   return (
-    <Box bg="#000" height="400px" width="100%">
-      <Box m="80px auto 0">
-        <img src="" alt="logo" />
+    <Box bg="#000" width="100%">
+      <Box m="0 auto" pt="80px" textAlign="center">
+        <img src={libra} alt="logo" />
       </Box>
-      <Box width={['400px', '600px', '800px']} m="0 auto">
+      <Box width={['400px', '600px', '800px']} m="0 auto" pb="100px">
         <Input
           placeholder="Search Transactions, blocks, andresses, ENS…"
           value=""

@@ -59,7 +59,6 @@ const composeStyledInputStyle = compose(
 
 const StyledInput = styled('input')`
   ${composeStyledInputStyle};
-  cursor: pointer;
   box-sizing: border-box;
   outline: 0;
 
@@ -159,7 +158,7 @@ function Input({
       background={theme.inputLabelBackground}
       borderRadius={theme.inputLabelBorderRadius}
       m={theme.inputLabelMargin}
-      boxShadow={isActive ? theme.inputLabelActiveBoxShadow : 'none'}
+      // boxShadow={isActive ? theme.inputLabelActiveBoxShadow : 'none'}
       {...theme.inputLabelTheme}
     >
       {prefixAddon}

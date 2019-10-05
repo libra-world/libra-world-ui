@@ -9,3 +9,7 @@ body {
   color: #232d3d;
   font-size: 14px;
 }
+
+ul {
+  list-style-type: none;
+}

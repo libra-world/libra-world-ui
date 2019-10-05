@@ -46,6 +46,7 @@ function Header() {
               bg: '#222',
               py: '12px',
               pl: '20px',
+              mx: '10px',
             },
           }}
         />
