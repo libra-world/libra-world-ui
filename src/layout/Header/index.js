@@ -2,24 +2,44 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Box, Flex, Input } from '@src/components/uikit';
+import useHeader from './useHeader';
+
+const HeaderBox = styled(Flex)`
+  transition: all 0.5s;
+`;
 
 const NavBox = styled(Flex)`
   a {
-    color: #fff;
+    //color: #fff;
     margin: 0 20px;
   }
 `;
 
 function Header() {
+  const { variant } = useHeader();
+  console.log('variant', variant);
+  const theme =
+    variant === 'dark'
+      ? {
+          headerBg: 'black',
+          headerColor: 'white',
+        }
+      : {
+          headerBg: 'white',
+          headerColor: 'black',
+        };
   return (
-    <Flex
-      bg="black"
+    <HeaderBox
+      position="fixed"
+      top="0"
+      zIndex="10"
+      bg={theme.headerBg}
       as="header"
       px="40px"
       height="100px"
       alignItems="center"
       width="100%"
-      color="white"
+      color={theme.headerColor}
     >
       <Box width="290px">logo</Box>
       <NavBox flex="1" justifyContent="center" alignItems="center">
@@ -51,7 +71,7 @@ function Header() {
           }}
         />
       </Flex>
-    </Flex>
+    </HeaderBox>
   );
 }
 

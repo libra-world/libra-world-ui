@@ -13,3 +13,8 @@ body {
 ul {
   list-style-type: none;
 }
+
+a,
+a:-webkit-any-link {
+  color: inherit;
+}
