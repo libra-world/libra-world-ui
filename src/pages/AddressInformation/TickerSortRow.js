@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import SortIndicator from '@src/components/SortIndicator';
 import { useTranslation } from 'react-i18next';
+import SortIndicator from '@src/components/SortIndicator';
 
 const TickerSortRowStyled = styled.div`
   font-size: 14px;
@@ -44,7 +44,7 @@ export default React.memo(({ onSortChange, sortBy, sortDirection }) => {
         <SortIndicator
           sortBy="bh"
           onSort={_onSort}
-          title={t('Block Height')}
+          title={t('TX ID')}
           sortDirection={sortBy === 'bh' ? sortDirection : null}
         />
       </div>
@@ -52,7 +52,7 @@ export default React.memo(({ onSortChange, sortBy, sortDirection }) => {
         <SortIndicator
           sortBy="at"
           onSort={_onSort}
-          title={t('Amount Transacted')}
+          title={t('Time')}
           sortDirection={sortBy === 'at' ? sortDirection : null}
         />
       </div>
@@ -60,7 +60,7 @@ export default React.memo(({ onSortChange, sortBy, sortDirection }) => {
         <SortIndicator
           sortBy="hi"
           onSort={_onSort}
-          title={t('Hash ID')}
+          title={t('From')}
           sortDirection={sortBy === 'hi' ? sortDirection : null}
         />
       </div>
@@ -68,7 +68,7 @@ export default React.memo(({ onSortChange, sortBy, sortDirection }) => {
         <SortIndicator
           sortBy="ts"
           onSort={_onSort}
-          title={t('Transactions')}
+          title={t('Amount')}
           sortDirection={sortBy === 'ts' ? sortDirection : null}
         />
       </div>
@@ -76,7 +76,7 @@ export default React.memo(({ onSortChange, sortBy, sortDirection }) => {
         <SortIndicator
           sortBy="dt"
           onSort={_onSort}
-          title={t('Date & Time')}
+          title={t('TX Fee')}
           sortDirection={sortBy === 'dt' ? sortDirection : null}
         />
       </div>
