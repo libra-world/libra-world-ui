@@ -1,12 +1,15 @@
 import React from 'react';
-import Header from './Header';
+import { Box } from '@src/components/uikit';
 import Footer from '@src/layout/Footer';
+import Header from './Header';
 
 function Index({ children }) {
   return (
     <div className="wrapper">
       <Header />
-      <main>{children}</main>
+      <Box as="main" mt="100px">
+        {children}
+      </Box>
       <Footer />
     </div>
   );
