@@ -24,10 +24,12 @@ function Header() {
       ? {
           headerBg: 'black',
           headerColor: 'white',
+          boxBg: '#222',
         }
       : {
           headerBg: 'white',
           headerColor: 'black',
+          boxBg: 'rgba(247,248,250)',
         };
   return (
     <HeaderBox
@@ -51,7 +53,7 @@ function Header() {
         <Dropdown
           trigger="click"
           overlay={
-            <Box width="100px" bg="#222">
+            <Box width="100px" bg={theme.boxBg}>
               <Box px="plus" py="xs">
                 aaaa
               </Box>
@@ -61,7 +63,7 @@ function Header() {
             </Box>
           }
         >
-          <Box px="10px" lineHeight="40px" height="40px" width="100px" bg="#222">
+          <Box px="10px" lineHeight="40px" height="40px" width="100px" bg={theme.boxBg}>
             Mainnet <Icon type="down" />
           </Box>
         </Dropdown>
@@ -79,16 +81,16 @@ function Header() {
           }}
           theme={{
             inputLabelTheme: {
-              background: '#222',
-              border: '1px solid #222',
-              bg: '#222',
+              background: theme.boxBg,
+              border: 'none',
+              bg: theme.boxBg,
               py: '12px',
               pl: '20px',
               mx: '10px',
               width: '240px',
             },
             inputTheme: {
-              bg: '#222',
+              bg: theme.boxBg,
               color: '#fff',
             },
           }}
