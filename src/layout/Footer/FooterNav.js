@@ -18,55 +18,29 @@ function FooterNav(props) {
           </Box>
           <ul>
             <Box as="li" color="#9ca6b4" mb="lg">
-              What is Libra?
+              <a href="https://libra.org/en-US/learn-faqs/" target="_blank">
+                What is Libra?
+              </a>
             </Box>
             <Box as="li" color="#9ca6b4" mb="lg">
-              Official White Paper
+              <a href="https://libra.org/en-US/white-paper/" target="_blank">
+                Official White Paper
+              </a>
             </Box>
             <Box as="li" color="#9ca6b4" mb="lg">
-              Understanding The Libra Reserve
+              <a href="https://libra.org/en-US/about-currency-reserve/#the_reserve" target="_blank">
+                Understanding The Libra Reserve
+              </a>
             </Box>
             <Box as="li" color="#9ca6b4" mb="lg">
-              {' '}
-              The Role Of Libra Association
+              <a href="https://libra.org/en-US/association/#goals_organization" target="_blank">
+                The Role Of Libra Association
+              </a>
             </Box>
             <Box as="li" color="#9ca6b4" mb="lg">
-              {' '}
-              Official White Paper
-            </Box>
-            <Box as="li" color="#9ca6b4" mb="lg">
-              Understanding The Libra Reserve
-            </Box>
-            <Box as="li" color="#9ca6b4" mb="lg">
-              The Role Of Libra Association
-            </Box>
-          </ul>
-        </Box>
-        <Box>
-          <Box mb="32px" color="#232D3D">
-            About Libra
-          </Box>
-          <ul>
-            <Box as="li" color="#9ca6b4" mb="lg">
-              what is libra
-            </Box>
-            <Box as="li" color="#9ca6b4" mb="lg">
-              what is libra
-            </Box>
-            <Box as="li" color="#9ca6b4" mb="lg">
-              what is libra
-            </Box>
-            <Box as="li" color="#9ca6b4" mb="lg">
-              what is libra
-            </Box>
-            <Box as="li" color="#9ca6b4" mb="lg">
-              what is libra
-            </Box>
-            <Box as="li" color="#9ca6b4" mb="lg">
-              what is libra
-            </Box>
-            <Box as="li" color="#9ca6b4" mb="lg">
-              what is libra
+              <a href="https://libra.org/en-US/white-paper" target="_blank">
+                Official White Paper
+              </a>
             </Box>
           </ul>
         </Box>
@@ -76,22 +50,27 @@ function FooterNav(props) {
           </Box>
           <ul>
             <Box as="li" color="#9ca6b4" mb="lg">
-              Develop with Libra
+              <a href="https://libra.org/en-US/open-source-developers/" target="_blank">
+                Develop with Libra
+              </a>
             </Box>
             <Box as="li" color="#9ca6b4" mb="lg">
-              Learning The Move Language
+              <a href="https://github.com/libra/libra" target="_blank">
+                Contribute to Open Source
+              </a>
             </Box>
             <Box as="li" color="#9ca6b4" mb="lg">
-              Contribute to Open Source
+              <a href="https://developers.libra.org/docs/move-paper" target="_blank">
+                Learning The Move Language
+              </a>
             </Box>
             <Box as="li" color="#9ca6b4" mb="lg">
-              Join The Discussion
-            </Box>
-            <Box as="li" color="#9ca6b4" mb="lg">
-              Contribute to Open Source
-            </Box>
-            <Box as="li" color="#9ca6b4" mb="lg">
-              Join The Discussion
+              <a
+                href="https://community.libra.org/t/libexplorer-com-a-new-libra-blockchain-explorer-launches/1135"
+                target="_blank"
+              >
+                Join The Discussion
+              </a>
             </Box>
           </ul>
         </Box>
@@ -101,28 +80,33 @@ function FooterNav(props) {
           </Box>
           <ul>
             <Box as="li" color="#9ca6b4" mb="lg">
-              All You Need To Know About Libra{' '}
+              <a href="https://techcrunch.com/2019/06/18/facebook-libra/" target="_blank">
+                All You Need To Know About Libra
+              </a>
             </Box>
             <Box as="li" color="#9ca6b4" mb="lg">
-              Libra Explained & Demystified
+              <a
+                href="https://www.theverge.com/2019/6/26/18716326/facebook-libra-cryptocurrency-blockchain-irs-starbucks"
+                target="_blank"
+              >
+                Libra Explained & Demystified
+              </a>
             </Box>
             <Box as="li" color="#9ca6b4" mb="lg">
-              What Is Libra Token?
+              <a
+                href="https://www.coindesk.com/billion-dollar-returns-the-upside-of-facebooks-libra-cryptocurrency"
+                target="_blank"
+              >
+                What Is Libra Token?
+              </a>
             </Box>
             <Box as="li" color="#9ca6b4" mb="lg">
-              10 Questions About Libra
-            </Box>
-            <Box as="li" color="#9ca6b4" mb="lg">
-              All You Need To Know About Libra
-            </Box>
-            <Box as="li" color="#9ca6b4" mb="lg">
-              Libra Explained & Demystified
-            </Box>
-            <Box as="li" color="#9ca6b4" mb="lg">
-              What Is Libra Token?
-            </Box>
-            <Box as="li" color="#9ca6b4" mb="lg">
-              10 Questions About Libra
+              <a
+                href="https://blog.usejournal.com/10-questions-about-libra-facebooks-new-digital-currency-db4715c6a240"
+                target="_blank"
+              >
+                10 Questions About Libra
+              </a>
             </Box>
           </ul>
         </Box>

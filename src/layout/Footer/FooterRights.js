@@ -13,10 +13,14 @@ function FooterRights(props) {
       <Box>© 2019 LibraExplorer. All rights reserved.</Box>
       <Flex as="ul">
         <Box as="li" ml="40px">
-          Twitter
+          <a href="https://twitter.com/libexplorerHQ" target="_blank">
+            Twitter
+          </a>
         </Box>
         <Box as="li" ml="40px">
-          Facebook
+          <a href="https://twitter.com/libexplorerHQ" target="_blank">
+            Facebook
+          </a>
         </Box>
         <Box as="li" ml="40px">
           Wechat
