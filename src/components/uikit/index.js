@@ -7,3 +7,4 @@ export { default as Box } from './components/Box';
 export { default as Flex } from './components/Flex';
 export { default as Button } from './components/Button';
 export { default as Input } from './components/Input';
+export { default as Dropdown } from './components/Dropdown';

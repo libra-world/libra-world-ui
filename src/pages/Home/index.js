@@ -5,6 +5,7 @@ import { Box } from '@src/components/uikit';
 import TickerSortRow from '@src/pages/Home/TickerSortRow';
 import TickersList from '@src/pages/Home/TickersList';
 import Summary from '@src/pages/Home/Summary';
+import { getTransactionTXList } from '@src/util/request';
 
 const MarketBox = styled(Box)`
   box-shadow: ${({ theme }) => theme.colors.boxShadow};
@@ -18,6 +19,7 @@ function HomePage() {
     sortBy: 'qv',
     sortDirection: 'DESC',
   });
+  const [data, setData] = useState({});
   const tickers = [
     {
       b: '1',
@@ -37,6 +39,9 @@ function HomePage() {
     },
   ];
   const onRowClick = () => {};
+  React.useEffect(() => {
+    getTransactionTXList().then(resp => resp && setData(resp));
+  }, []);
   return (
     <>
       <BgCard />
