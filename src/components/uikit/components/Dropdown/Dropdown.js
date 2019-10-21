@@ -1,4 +1,5 @@
 import React, { forwardRef, useState, useRef } from 'react';
+import styled from 'styled-components';
 import { Box } from '../../index';
 class Position {
   constructor() {
@@ -74,36 +75,26 @@ const getAbsoluteDirection = (parentPosition, childrenPosition) => {
   return result;
 };
 
-const DropDownBox = forwardRef((props, ref) => (
-  <Box
-    ref={ref}
-    __css={{
-      position: 'relative',
-      display: 'inline-block',
-      outline: 'none',
-    }}
-    {...props}
-  />
-));
+const DropDownBoxStyled = styled(Box)`
+  position: relative;
+  display: inline-block;
+  outline: none;
+`;
+const DropDownBox = forwardRef((props, ref) => <DropDownBoxStyled ref={ref} {...props} />);
 
+const ShowBoxStyled = styled(Box)`
+  visibility: ${props => (props.show ? 'unset' : 'hidden')};
+  opacity: ${props => (props.show ? 1 : 0)};
+  position: ${props => (props.show ? (props.isFixed ? 'fixed' : 'absolute') : 'fixed')};
+  z-index: 999;
+  transition: opacity 0.5s;
+`;
 const ShowBox = forwardRef((props, ref) => (
-  <Box
-    ref={ref}
-    tx="dropdown"
-    variant="box"
-    __css={{
-      visibility: props.show ? 'unset' : 'hidden',
-      opacity: props.show ? 1 : 0,
-      position: props.show ? (props.isFixed ? 'fixed' : 'absolute') : 'fixed',
-      zIndex: 999,
-      transition: 'opacity 0.5s',
-    }}
-    {...props}
-  />
+  <ShowBoxStyled ref={ref} tx="dropdown" variant="box" {...props} />
 ));
 
 const Dropdown = forwardRef((props, ref) => {
-  const { children, overlay = <></>, tigger = 'click', isFixed = false, ...rest } = props;
+  const { children, overlay = <></>, trigger = 'click', isFixed = false, ...rest } = props;
   const [show, setShow] = useState(false);
   const [position, setPosition] = useState({});
   const childrenRef = useRef(null);
@@ -113,7 +104,7 @@ const Dropdown = forwardRef((props, ref) => {
   const getDirection = isFixed ? getFixedDirection : getAbsoluteDirection;
   const _showChildren = (__type, __way) => {
     if (__way === 'enter' && Date.now() - timer.current < 500) return;
-    if (__type !== tigger) return;
+    if (__type !== trigger) return;
     const parentPosition = getPosition(parentRef.current);
     const childrenPosition = getPosition(childrenRef.current);
     timer.current = Date.now();
@@ -123,7 +114,7 @@ const Dropdown = forwardRef((props, ref) => {
   };
 
   const _setChildShow = __way => {
-    const __type = tigger;
+    const __type = trigger;
     if (__type === 'click') {
       setShow(show => !show);
     } else if (__way === 'leave') {
@@ -148,7 +139,7 @@ const Dropdown = forwardRef((props, ref) => {
         props.onMouseLeave && props.onMouseLeave(event);
       }}
       onMouseLeave={
-        tigger === 'hover'
+        trigger === 'hover'
           ? event => {
               _setChildShow('leave');
               props.onMouseLeave && props.onMouseLeave(event);

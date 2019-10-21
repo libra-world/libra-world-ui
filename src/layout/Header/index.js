@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { Box, Flex, Input } from '@src/components/uikit';
+import { Box, Flex, Input, Dropdown } from '@src/components/uikit';
 import useHeader from './useHeader';
+import Icon from '@src/components/Icon';
 
 const HeaderBox = styled(Flex)`
   transition: all 0.5s;
@@ -46,8 +47,24 @@ function Header() {
         <Link to="/en">home</Link>
         <Link to="/en/address">address info</Link>
       </NavBox>
-      <Flex width="290px" alignItems="center">
-        mainnet
+      <Flex width="350px" alignItems="center">
+        <Dropdown
+          trigger="click"
+          overlay={
+            <Box width="100px" bg="#222">
+              <Box px="plus" py="xs">
+                aaaa
+              </Box>
+              <Box px="plus" py="xs">
+                aaaa
+              </Box>
+            </Box>
+          }
+        >
+          <Box px="10px" lineHeight="40px" height="40px" width="100px" bg="#222">
+            Mainnet <Icon type="down" />
+          </Box>
+        </Dropdown>
         <Input
           placeholder="Search tx/block/address"
           value=""
@@ -62,11 +79,17 @@ function Header() {
           }}
           theme={{
             inputLabelTheme: {
+              background: '#222',
               border: '1px solid #222',
               bg: '#222',
               py: '12px',
               pl: '20px',
               mx: '10px',
+              width: '240px',
+            },
+            inputTheme: {
+              bg: '#222',
+              color: '#fff',
             },
           }}
         />
