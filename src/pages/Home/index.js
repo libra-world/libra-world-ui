@@ -4,7 +4,7 @@ import BgCard from '@src/pages/Home/BgCard';
 import { Box } from '@src/components/uikit';
 import TickerSortRow from '@src/pages/Home/TickerSortRow';
 import TickersList from '@src/pages/Home/TickersList';
-import Summary from '@src/pages/Home/Summary';
+// import Summary from '@src/pages/Home/Summary';
 import { getTransactionTXList } from '@src/util/request';
 
 const MarketBox = styled(Box)`
@@ -45,8 +45,8 @@ function HomePage() {
   return (
     <>
       <BgCard />
-      <Summary />
-      <MarketBox width={['600px', '600px', '1200px']} m="0 auto 140px" p="26px 40px 20px">
+      {/*<Summary />*/}
+      <MarketBox width={['600px', '600px', '1200px']} m="40px auto 140px" p="26px 40px 20px">
         <TickerSortRow
           onSortChange={setSortObj}
           sortBy={sortObj.sortBy}
