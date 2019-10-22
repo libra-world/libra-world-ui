@@ -34,7 +34,7 @@ axios.interceptors.response.use(
 
 export async function getTransactionTXList(params = { currentPage: 1, sizePage: 10 }) {
   try {
-    const resp = await axios.post('/tx_api/txPage', params);
+    const resp = await axios.post('/api/tx_api/txPage', params);
     console.log('resp', resp);
     return resp;
   } catch (e) {

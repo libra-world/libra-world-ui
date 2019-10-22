@@ -1,9 +1,11 @@
 import React, { useCallback } from 'react';
-import { AutoSizer, List } from 'react-virtualized';
+import { AutoSizer, List, InfiniteLoader } from 'react-virtualized';
 import styled from 'styled-components';
 
 import TickerRow from './TickerRow';
 
+const STATUS_LOADING = 1;
+const STATUS_LOADED = 2;
 const ROW_HEIGHT = 70;
 const TickersListStyled = styled(List)`
   &.ReactVirtualized__Grid {
@@ -23,7 +25,15 @@ const TickersListStyled = styled(List)`
     }
   }
 `;
-export default function TickersList({ tickers, mode, onRowClick }) {
+export default function TickersList({ total, list, mode, onRowClick, onLoadMore }) {
+  const [loadedRowsMap, setLoadedRowsMap] = React.useState({});
+  const _isRowLoaded = useCallback(
+    ({ index }) => {
+      return !!loadedRowsMap[index];
+    },
+    [loadedRowsMap]
+  );
+
   const handleOnRowClick = useCallback(ticker => {
     if (onRowClick) return onRowClick(ticker);
     // TODO router push
@@ -31,9 +41,9 @@ export default function TickersList({ tickers, mode, onRowClick }) {
 
   const _rowRenderer = useCallback(
     ({ index, className, id, key, style }) => {
-      const ticker = tickers[index];
+      const ticker = list[index] || {};
 
-      return (
+      return loadedRowsMap[index] === STATUS_LOADED ? (
         <a
           id={id}
           className={className}
@@ -43,23 +53,61 @@ export default function TickersList({ tickers, mode, onRowClick }) {
         >
           <TickerRow ticker={ticker} />
         </a>
+      ) : (
+        <div
+          id={id}
+          className={className}
+          style={style}
+          onClick={() => handleOnRowClick(ticker)}
+          key={key}
+        >
+          loading
+        </div>
       );
     },
-    [tickers]
+    [list, loadedRowsMap]
+  );
+
+  const _loadMoreRows = useCallback(
+    ({ startIndex, stopIndex }) => {
+      console.log('startIndex, stopIndex', startIndex, stopIndex);
+      const increment = stopIndex - startIndex + 1;
+      const page = Math.ceil((startIndex + 1) / increment);
+      const pageSize = increment * 2;
+      for (let i = startIndex; i <= stopIndex; i++) {
+        loadedRowsMap[i] = STATUS_LOADING;
+      }
+
+      setLoadedRowsMap(loadedRowsMap);
+      return onLoadMore({ page, pageSize }).then(() => {
+        for (let i = startIndex; i <= stopIndex; i++) {
+          loadedRowsMap[i] = STATUS_LOADED;
+        }
+
+        setLoadedRowsMap(loadedRowsMap);
+      });
+    },
+    [loadedRowsMap]
   );
 
   return (
-    <AutoSizer disableHeight={false}>
-      {({ width, height }) => (
-        <TickersListStyled
-          rowCount={tickers.length}
-          height={height}
-          rowHeight={ROW_HEIGHT}
-          rowRenderer={_rowRenderer}
-          width={width}
-          scrollToIndex={0}
-        />
+    <InfiniteLoader isRowLoaded={_isRowLoaded} loadMoreRows={_loadMoreRows} rowCount={total}>
+      {({ onRowsRendered, registerChild }) => (
+        <AutoSizer disableHeight={false}>
+          {({ width, height }) => (
+            <TickersListStyled
+              ref={registerChild}
+              onRowsRendered={onRowsRendered}
+              rowCount={total}
+              height={500}
+              rowHeight={ROW_HEIGHT}
+              rowRenderer={_rowRenderer}
+              width={width}
+              scrollToIndex={0}
+            />
+          )}
+        </AutoSizer>
       )}
-    </AutoSizer>
+    </InfiniteLoader>
   );
 }

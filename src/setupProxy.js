@@ -11,11 +11,11 @@ module.exports = function setupProxy(app) {
     dev: 'http://libra-world.com:8080',
     mock: `http://localhost:${PORT}`,
   };
-  const devProxy = proxy('/tx_api', {
+  const devProxy = proxy('/api', {
     target: config[localEnv],
     changeOrigin: true,
     pathRewrite: {
-      '^/tx_api': '/tx_api',
+      '^/api': '/api',
     },
   });
   app.use(devProxy);

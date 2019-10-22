@@ -35,25 +35,15 @@ const TickerRowStyled = styled.div`
 
 export default React.memo(function TickerRow({ ticker }) {
   const { t } = useTranslation();
-  const {
-    ts: tickSize,
-    s: symbol,
-    b: baseAsset,
-    q: quoteAsset,
-    o: open,
-    c: close,
-    qv: quoteVolume,
-    dayRate,
-    isFavorite,
-  } = ticker;
+  const { version, from, type, to, amount, gasUsed } = ticker;
 
   return (
     <TickerRowStyled>
-      <div className="bh">{baseAsset}</div>
-      <div className="at">{quoteAsset}</div>
-      <div className="hi"></div>
-      <div className="ts"></div>
-      <div className="dt"></div>
+      <div className="bh">{version}</div>
+      <div className="at">{from}</div>
+      <div className="hi">{type}</div>
+      <div className="ts">{amount}</div>
+      <div className="dt">{gasUsed}</div>
     </TickerRowStyled>
   );
 });

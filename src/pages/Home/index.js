@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import get from 'lodash/get';
 import BgCard from '@src/pages/Home/BgCard';
 import { Box } from '@src/components/uikit';
 import TickerSortRow from '@src/pages/Home/TickerSortRow';
@@ -14,12 +15,13 @@ const TickersListStyled = styled(Box)`
   overflow: hidden;
 `;
 const ROW_HEIGHT = 70;
+
 function HomePage() {
   const [sortObj, setSortObj] = useState({
     sortBy: 'qv',
     sortDirection: 'DESC',
   });
-  const [data, setData] = useState({});
+  const [data, setData] = useState({ total: 0, list: [] });
   const tickers = [
     {
       b: '1',
@@ -39,8 +41,31 @@ function HomePage() {
     },
   ];
   const onRowClick = () => {};
+  const onLoadMore = React.useCallback(
+    async ({ page, pageSize }) => {
+      const resp = await getTransactionTXList({ currentPage: page, sizePage: pageSize });
+      if (get(resp, ['data', 'success'])) {
+        setData(({ list }) => ({
+          total: get(resp, ['data', 'data', 'totalCount']),
+          list: list
+            .slice(0, page * pageSize - 1)
+            .concat(get(resp, ['data', 'data', 'data']))
+            .concat(data.list.slice((page + 1) * pageSize - 1)),
+        }));
+      }
+    },
+    [setData]
+  );
+  console.log('data', data);
   React.useEffect(() => {
-    getTransactionTXList().then(resp => resp && setData(resp));
+    getTransactionTXList().then(resp => {
+      if (get(resp, ['data', 'success'])) {
+        setData({
+          total: get(resp, ['data', 'data', 'totalCount']),
+          list: get(resp, ['data', 'data', 'data']),
+        });
+      }
+    });
   }, []);
   return (
     <>
@@ -55,7 +80,12 @@ function HomePage() {
         <TickersListStyled
           height={tickers.length < 15 ? `${tickers.length * ROW_HEIGHT}px` : '1000px'}
         >
-          <TickersList tickers={tickers} onRowClick={onRowClick} />
+          <TickersList
+            {...data}
+            tickers={tickers}
+            onRowClick={onRowClick}
+            onLoadMore={onLoadMore}
+          />
         </TickersListStyled>
       </MarketBox>
     </>
