@@ -22,24 +22,6 @@ function HomePage() {
     sortDirection: 'DESC',
   });
   const [data, setData] = useState({ total: 0, list: [] });
-  const tickers = [
-    {
-      b: '1',
-      q: '34',
-    },
-    {
-      b: '1',
-      q: '34',
-    },
-    {
-      b: '1',
-      q: '34',
-    },
-    {
-      b: '1',
-      q: '34',
-    },
-  ];
   const onRowClick = () => {};
   const onLoadMore = React.useCallback(
     async ({ page, pageSize }) => {
@@ -77,15 +59,8 @@ function HomePage() {
           sortBy={sortObj.sortBy}
           sortDirection={sortObj.sortDirection}
         />
-        <TickersListStyled
-          height={tickers.length < 15 ? `${tickers.length * ROW_HEIGHT}px` : '1000px'}
-        >
-          <TickersList
-            {...data}
-            tickers={tickers}
-            onRowClick={onRowClick}
-            onLoadMore={onLoadMore}
-          />
+        <TickersListStyled height={data.total < 15 ? `${data.total * ROW_HEIGHT}px` : '700px'}>
+          <TickersList {...data} onRowClick={onRowClick} onLoadMore={onLoadMore} />
         </TickersListStyled>
       </MarketBox>
     </>

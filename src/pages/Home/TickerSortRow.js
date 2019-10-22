@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import SortIndicator from '@src/components/SortIndicator';
+// import SortIndicator from '@src/components/SortIndicator';
 import { useTranslation } from 'react-i18next';
 
 const TickerSortRowStyled = styled.div`
@@ -10,23 +10,28 @@ const TickerSortRowStyled = styled.div`
   display: flex;
   align-items: center;
   padding: 15px 16px;
-  .bh {
-    flex: 0 1 140px;
-    overflow: hidden;
+  .tx-id {
+    flex: 0 1 110px;
   }
-  .at {
-    flex: 0 1 170px;
+  .et {
+    flex: 0 1 200px;
     padding-left: 8px;
   }
-  .hi {
-    flex: 0 1 570px;
-    padding-left: 8px;
-  }
-  .ts {
+  .type {
     flex: 0 1 120px;
   }
-  .dt {
+  .from {
+    flex: 0 1 300px;
+  }
+  .to {
+    flex: 0 1 300px;
+    padding-left: 8px;
+  }
+  .amount {
     flex: 0 1 130px;
+  }
+  .fx-fee {
+    flex: 0 1 100px;
   }
   & > div {
     display: flex;
@@ -40,46 +45,21 @@ export default React.memo(({ onSortChange, sortBy, sortDirection }) => {
   };
   return (
     <TickerSortRowStyled>
-      <div className="bh">
-        <SortIndicator
+      <div className="tx-id">
+        {/*<SortIndicator
           sortBy="bh"
           onSort={_onSort}
-          title={t('Block Height')}
+          title={t('TX ID')}
           sortDirection={sortBy === 'bh' ? sortDirection : null}
-        />
+        />*/}
+        TX ID
       </div>
-      <div className="at">
-        <SortIndicator
-          sortBy="at"
-          onSort={_onSort}
-          title={t('Amount Transacted')}
-          sortDirection={sortBy === 'at' ? sortDirection : null}
-        />
-      </div>
-      <div className="hi">
-        <SortIndicator
-          sortBy="hi"
-          onSort={_onSort}
-          title={t('Hash ID')}
-          sortDirection={sortBy === 'hi' ? sortDirection : null}
-        />
-      </div>
-      <div className="ts">
-        <SortIndicator
-          sortBy="ts"
-          onSort={_onSort}
-          title={t('Transactions')}
-          sortDirection={sortBy === 'ts' ? sortDirection : null}
-        />
-      </div>
-      <div className="dt">
-        <SortIndicator
-          sortBy="dt"
-          onSort={_onSort}
-          title={t('Date & Time')}
-          sortDirection={sortBy === 'dt' ? sortDirection : null}
-        />
-      </div>
+      <div className="et">Expiration Time</div>
+      <div className="type">Type</div>
+      <div className="from">From</div>
+      <div className="to">To</div>
+      <div className="amount">Amount</div>
+      <div className="fx-fee">Fx Fee</div>
     </TickerSortRowStyled>
   );
 });

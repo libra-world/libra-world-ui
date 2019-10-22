@@ -99,7 +99,7 @@ export default function TickersList({ total, list, mode, onRowClick, onLoadMore 
               ref={registerChild}
               onRowsRendered={onRowsRendered}
               rowCount={total}
-              height={500}
+              height={height}
               rowHeight={ROW_HEIGHT}
               rowRenderer={_rowRenderer}
               width={width}
