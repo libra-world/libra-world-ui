@@ -14,7 +14,7 @@ const TickersListStyled = styled(List)`
       display: none;
     }
   }
-  .ReactVirtualized__Grid__innerScrollContainer > a:not(:last-child) {
+  .ReactVirtualized__Grid__innerScrollContainer > div:not(:last-child) {
     border-bottom: 1px solid #f7f8fa;
   }
 
@@ -44,7 +44,7 @@ export default function TickersList({ total, list, mode, onRowClick, onLoadMore 
       const ticker = list[index] || {};
 
       return loadedRowsMap[index] === STATUS_LOADED ? (
-        <a
+        <div
           id={id}
           className={className}
           style={style}
@@ -52,7 +52,7 @@ export default function TickersList({ total, list, mode, onRowClick, onLoadMore 
           key={key}
         >
           <TickerRow ticker={ticker} />
-        </a>
+        </div>
       ) : (
         <div
           id={id}

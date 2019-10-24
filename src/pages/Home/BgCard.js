@@ -1,8 +1,22 @@
 import React from 'react';
 import { Box, Button, Input } from '@src/components/uikit';
 import libra from '@src/static/images/libra.jpeg';
+import { useSelector } from 'react-redux';
+import store from '@src/store';
+import { useDebounce } from 'react-use';
+import debounce from 'lodash/debounce';
 
 function BgCard(props) {
+  const searchString = useSelector(state => state.home.searchString);
+  const [val, setVal] = React.useState(searchString);
+  useDebounce(
+    () => {
+      store.dispatch.home.setSearch(val);
+    },
+    300,
+    [val]
+  );
+
   return (
     <Box bg="#000" width="100%">
       <Box m="0 auto" pt="80px" textAlign="center">
@@ -11,7 +25,7 @@ function BgCard(props) {
       <Box width={['400px', '600px', '800px']} m="0 auto" pb="100px">
         <Input
           placeholder="Search Transactions, blocks, andresses, ENS…"
-          value=""
+          value={val}
           id="test"
           ariaLabel="string"
           vertical={false}
@@ -22,8 +36,8 @@ function BgCard(props) {
               Search
             </Button>
           }
-          onChange={val => {
-            console.log(val);
+          onChange={e => {
+            setVal(e.target.value);
           }}
           theme={{
             inputLabelTheme: {
