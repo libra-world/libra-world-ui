@@ -1,4 +1,5 @@
 import axios from 'axios';
+import qs from 'qs';
 import Loading from '@src/components/Loading';
 
 axios.defaults.baseURL = '';
@@ -34,7 +35,7 @@ axios.interceptors.response.use(
 
 export async function getTransactionTXList(params = { currentPage: 1, sizePage: 10 }) {
   try {
-    const resp = await axios.post('/api/tx_api/txPage', params);
+    const resp = await axios.post(`/api/tx_api/txPage?${qs.stringify(params)}`, params);
     console.log('resp', resp);
     return resp;
   } catch (e) {

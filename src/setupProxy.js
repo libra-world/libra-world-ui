@@ -8,7 +8,7 @@ module.exports = function setupProxy(app) {
   const config = {
     // 'dev': '121.40.165.183:8080',
     // 'dev': '172.21.13.149:443',
-    dev: 'http://libra-world.com:8080',
+    dev: 'https://libra-x.io',
     mock: `http://localhost:${PORT}`,
   };
   const devProxy = proxy('/api', {

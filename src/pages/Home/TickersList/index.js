@@ -71,21 +71,26 @@ export default function TickersList({ total, list, mode, onRowClick, onLoadMore 
   const _loadMoreRows = useCallback(
     ({ startIndex, stopIndex }) => {
       console.log('startIndex, stopIndex', startIndex, stopIndex);
-      const increment = stopIndex - startIndex + 1;
+      // const increment = stopIndex - startIndex + 1;
+      const increment = 10;
       const page = Math.ceil((startIndex + 1) / increment);
-      const pageSize = increment * 2;
-      for (let i = startIndex; i <= stopIndex; i++) {
+      // const pageSize = increment * 2;
+      const pageSize = increment;
+      const ignoreEndIndex = startIndex + pageSize;
+      for (let i = startIndex; i <= ignoreEndIndex; i++) {
         loadedRowsMap[i] = STATUS_LOADING;
       }
 
       setLoadedRowsMap(loadedRowsMap);
-      return onLoadMore({ page, pageSize }).then(() => {
-        for (let i = startIndex; i <= stopIndex; i++) {
-          loadedRowsMap[i] = STATUS_LOADED;
-        }
+      return onLoadMore({ page, pageSize, ignoreEndIndex, ignoreStartIndex: startIndex }).then(
+        () => {
+          for (let i = startIndex; i <= ignoreEndIndex; i++) {
+            loadedRowsMap[i] = STATUS_LOADED;
+          }
 
-        setLoadedRowsMap(loadedRowsMap);
-      });
+          setLoadedRowsMap(loadedRowsMap);
+        }
+      );
     },
     [loadedRowsMap]
   );

@@ -24,8 +24,8 @@ function HomePage() {
     sortDirection: 'DESC',
   });
   const onRowClick = () => {};
-  const onLoadMore = React.useCallback(async ({ page, pageSize }) => {
-    await store.dispatch.home.requestTransactionTXList({ currentPage: page, sizePage: pageSize });
+  const onLoadMore = React.useCallback(async params => {
+    await store.dispatch.home.requestTransactionTXList(params);
   }, []);
   console.log('data', data);
 

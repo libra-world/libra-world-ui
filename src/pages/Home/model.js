@@ -27,20 +27,24 @@ export default {
     },
   },
   effects: {
-    async requestTransactionTXList(payload = { currentPage: 1, sizePage: 10 }, rootState) {
+    async requestTransactionTXList(payload = { page: 1, pageSize: 10 }, rootState) {
+      // 数据已经全部获取
+      if (rootState.home.data.list.length === rootState.home.data.total) return;
       const resp = await getTransactionTXList({
-        ...payload,
+        currentPage: payload.page,
+        sizePage: payload.pageSize,
         search: rootState.home.searchString,
       });
+      console.log('ignoreStartIndex', payload.ignoreStartIndex);
+      console.log('ignoreEndIndex', payload.ignoreEndIndex);
+      // todo slice(0, payload.ignoreStartIndex) .length < ignoreStartIndex 时， 需要数据补全 or 迁至 imutable
       if (get(resp, ['data', 'success'])) {
         this.setData({
           total: get(resp, ['data', 'data', 'totalCount']),
           list: rootState.home.data.list
-            .slice(0, payload.currentPage * payload.sizePage - 1)
+            .slice(0, payload.ignoreStartIndex)
             .concat(get(resp, ['data', 'data', 'data']))
-            .concat(
-              rootState.home.data.list.slice((payload.currentPage + 1) * payload.sizePage - 1)
-            ),
+            .concat(rootState.home.data.list.slice(payload.ignoreEndIndex - 1)),
         });
       }
     },
