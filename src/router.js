@@ -25,7 +25,7 @@ export default class RootRouter extends PureComponent {
               <Suspense fallback={<Loading />}>
                 <Route exact={true} path="/" component={HomePage} />
                 <Route exact={true} path="/:locale" component={HomePage} />
-                <Route path="/:locale/address" component={AddressInformation} />
+                <Route path="/:locale/address-info/:address" component={AddressInformation} />
               </Suspense>
             </Layout>
           </ErrorBoundary>

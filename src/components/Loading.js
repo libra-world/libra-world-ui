@@ -22,7 +22,7 @@ const StyledSpinner = styled.div`
   transform: translate(-50%, -50%);
 
   & > div {
-    background-color: #f5bc00;
+    background-color: #222;
     height: 100%;
     width: 3px;
     display: inline-block;

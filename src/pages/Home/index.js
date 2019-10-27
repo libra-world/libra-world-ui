@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 import get from 'lodash/get';
 import BgCard from '@src/pages/Home/BgCard';
 import { Box } from '@src/components/uikit';
-import TickerSortRow from '@src/pages/Home/TickerSortRow';
-import TickersList from '@src/pages/Home/TickersList';
+import TickerSortRow from '@src/components/TickerSortRow';
+import TickersList from '@src/components/TickersList';
 // import Summary from '@src/pages/Home/Summary';
 import store from '@src/store';
 

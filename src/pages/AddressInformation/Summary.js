@@ -2,7 +2,8 @@ import React from 'react';
 import { Box, Flex } from '@src/components/uikit';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
-// import API_PATH from '@src/config/api';
+import { useSelector } from 'react-redux';
+import BigNumber from 'bignumber.js';
 
 const SummaryBox = styled(Flex)`
   white-space: nowrap;
@@ -16,10 +17,9 @@ const ValBox = styled(Box)`
 `;
 
 function Summary() {
-  const [advInfo, setInfo] = React.useState({});
-  React.useEffect(() => {
-    // request
-  }, []);
+  const receivedEventCount = useSelector(state => state.addressInfoModel.receivedEventCount);
+  const sentEventCount = useSelector(state => state.addressInfoModel.sentEventCount);
+  const seq = useSelector(state => state.addressInfoModel.seq);
 
   return (
     <SummaryBox
@@ -31,20 +31,20 @@ function Summary() {
       justifyContent="space-between"
     >
       <Box textAlign="center">
-        <Box color="lightGray">Received Transactions</Box>
-        <ValBox>802</ValBox>
+        <Box color="lightGray">Sent Txs</Box>
+        <ValBox>{new BigNumber(seq).toFormat()}</ValBox>
       </Box>
       <Box textAlign="center">
-        <Box color="lightGray">Sent Transactions</Box>
-        <ValBox>17,857,312</ValBox>
+        <Box color="lightGray">Sequence</Box>
+        <ValBox>{new BigNumber(seq).toFormat()}</ValBox>
       </Box>
       <Box textAlign="center">
-        <Box color="lightGray">Sequence Number</Box>
-        <ValBox>17,857,312</ValBox>
+        <Box color="lightGray">Sent Events</Box>
+        <ValBox>{new BigNumber(sentEventCount).toFormat()}</ValBox>
       </Box>
       <Box textAlign="center">
-        <Box color="lightGray">First Version Seen</Box>
-        <ValBox>139012</ValBox>
+        <Box color="lightGray">Received Events</Box>
+        <ValBox>{new BigNumber(receivedEventCount).toFormat()}</ValBox>
       </Box>
     </SummaryBox>
   );

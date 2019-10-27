@@ -18,3 +18,9 @@ a,
 a:-webkit-any-link {
   color: inherit;
 }
+
+.ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import { AutoSizer, List, InfiniteLoader } from 'react-virtualized';
 import styled from 'styled-components';
+import fill from 'lodash/fill';
 
 import TickerRow from './TickerRow';
 
@@ -26,7 +27,11 @@ const TickersListStyled = styled(List)`
   }
 `;
 export default function TickersList({ total, list, mode, onRowClick, onLoadMore }) {
-  const [loadedRowsMap, setLoadedRowsMap] = React.useState({});
+  const [loadedRowsMap, setLoadedRowsMap] = React.useState(
+    list?.length
+      ? fill(Array(list.length), STATUS_LOADED)
+      : fill(Array(list.length), STATUS_LOADING)
+  );
   const _isRowLoaded = useCallback(
     ({ index }) => {
       return !!loadedRowsMap[index];

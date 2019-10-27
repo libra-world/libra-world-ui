@@ -18,7 +18,6 @@ const NavBox = styled(Flex)`
 
 function Header() {
   const { variant } = useHeader();
-  console.log('variant', variant);
   const theme =
     variant === 'dark'
       ? {

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import SortIndicator from '@src/components/SortIndicator';
 import { Box } from '@src/components/uikit';
+import { Link } from 'react-router-dom';
 
 const TickerRowStyled = styled.div`
   font-size: 18px;
@@ -48,7 +49,7 @@ export default React.memo(function TickerRow({ ticker }) {
 
   return (
     <TickerRowStyled>
-      <div className="tx-id">
+      <Box className="tx-id" as="a" color="#215399">
         {/*<SortIndicator
           sortBy="bh"
           onSort={_onSort}
@@ -56,18 +57,15 @@ export default React.memo(function TickerRow({ ticker }) {
           sortDirection={sortBy === 'bh' ? sortDirection : null}
         />*/}
         {version}
-      </div>
+      </Box>
       <div className="et">{moment(new Date(expire)).fromNow()}</div>
       <Box className="type" color="#215399">
         {type}
       </Box>
-      <Box
-        title={type === 'mint' ? `Minter(${from})` : from}
-        as="a"
-        className="from"
-        color="#215399"
-      >
-        {type === 'mint' ? 'Minter' : `${from?.slice(0, 10)}......${from?.slice(-9)}`}
+      <Box className="from" color="#215399">
+        <Link title={type === 'mint' ? `Minter(${from})` : from} to={`/en/address-info/${from}`}>
+          {type === 'mint' ? 'Minter' : `${from?.slice(0, 10)}......${from?.slice(-9)}`}
+        </Link>
       </Box>
       <Box as="a" title={to} className="to" color="#215399">
         {to && `${to.slice(0, 10)}......${to.slice(-9)}`}
