@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import ThemeProvider from './theme/ThemeProvider';
 import 'normalize.css';
 import './static/css/override.css';
+import './static/icon/iconfont.css';
 
 import RootRouter from './router';
 import store from './store';

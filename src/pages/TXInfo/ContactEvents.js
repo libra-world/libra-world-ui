@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import FormItem from '@src/components/FormItem';
 import { Box, Flex } from '@src/components/uikit';
+import Icon from '@src/components/Icon';
 
 const ActionBox = styled(Box)`
   cursor: pointer;
@@ -15,6 +16,7 @@ function ContactEvents({ events = [] }) {
         <Box color="#C1C1C1">Contact events</Box>
         <ActionBox flex="0 0 100px" color="#215399" onClick={() => setShowMore(!showMore)}>
           {showMore ? 'Show Less' : 'Show More'}
+          <Icon fontSize="12px" type={showMore ? 'angle-up' : 'angle-down'} />
         </ActionBox>
       </Flex>
       {showMore ? (

@@ -1,10 +1,9 @@
 import React from 'react';
 import { Box, Button, Input } from '@src/components/uikit';
-import libra from '@src/static/images/libra.jpeg';
+import libra from '@src/static/images/logo-white.png';
 import { useSelector } from 'react-redux';
 import store from '@src/store';
 import { useDebounce } from 'react-use';
-import debounce from 'lodash/debounce';
 
 function BgCard(props) {
   const searchString = useSelector(state => state.home.searchString);

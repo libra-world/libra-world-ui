@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { Box, Flex, Input, Dropdown } from '@src/components/uikit';
 import useHeader from './useHeader';
 import Icon from '@src/components/Icon';
+import libraLight from '@src/static/images/logo-white.png';
+import libraDark from '@src/static/images/logo-dark.png';
 
 const HeaderBox = styled(Flex)`
   transition: all 0.5s;
@@ -43,10 +45,13 @@ function Header() {
       width="100%"
       color={theme.headerColor}
     >
-      <Box width="290px">logo</Box>
+      <Box width="90px">
+        <img width="100%" src={variant === 'dark' ? libraLight : libraDark} alt="logo" />
+      </Box>
       <NavBox flex="1" justifyContent="center" alignItems="center">
-        <Link to="/en">home</Link>
-        <Link to="/en/address">address info</Link>
+        <Link to="/en">Home</Link>
+        <Link to="/en/address">Transactions</Link>
+        <Link to="/en/address">Faucet</Link>
       </NavBox>
       <Flex width="350px" alignItems="center">
         <Dropdown
@@ -74,7 +79,11 @@ function Header() {
           vertical={false}
           isActive={true}
           rtl={false}
-          suffixAddon={<Box mx="8px">.com</Box>}
+          suffixAddon={
+            <Box mx="8px">
+              <Icon type="search" />
+            </Box>
+          }
           onChange={val => {
             console.log(val);
           }}

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import FormItem from '@src/components/FormItem';
 import { Box, Flex } from '@src/components/uikit';
-import qs from 'qs';
+import Icon from '@src/components/Icon';
 
 const ActionBox = styled(Box)`
   cursor: pointer;
@@ -21,6 +21,7 @@ function ArgItem({ args = [] }) {
           onClick={() => setShowMore(!showMore)}
         >
           {showMore ? 'Show Less' : 'Show More'}
+          <Icon fontSize="12px" type={showMore ? 'angle-up' : 'angle-down'} />
         </ActionBox>
       </Flex>
       {showMore ? (

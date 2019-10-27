@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Flex } from '@src/components/uikit';
 import styled from 'styled-components';
+import Icon from '@src/components/Icon';
 
 const ActionBox = styled(Box)`
   cursor: pointer;
@@ -25,7 +26,8 @@ function BlobItem({ list = [] }) {
         )}
       </Box>
       <ActionBox flex="0 0 100px" mt="30px" color="#215399" onClick={() => setShowMore(!showMore)}>
-        {showMore ? 'Show Less' : 'Show More'}
+        {showMore ? 'Show Less ' : 'Show More '}
+        <Icon fontSize="12px" type={showMore ? 'angle-up' : 'angle-down'} />
       </ActionBox>
     </Flex>
   );
