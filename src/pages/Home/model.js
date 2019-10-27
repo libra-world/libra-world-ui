@@ -38,12 +38,12 @@ export default {
       console.log('ignoreStartIndex', payload.ignoreStartIndex);
       console.log('ignoreEndIndex', payload.ignoreEndIndex);
       // todo slice(0, payload.ignoreStartIndex) .length < ignoreStartIndex 时， 需要数据补全 or 迁至 imutable
-      if (get(resp, ['data', 'success'])) {
+      if (get(resp, ['success'])) {
         this.setData({
-          total: get(resp, ['data', 'data', 'totalCount']),
+          total: get(resp, ['data', 'totalCount']),
           list: rootState.home.data.list
             .slice(0, payload.ignoreStartIndex)
-            .concat(get(resp, ['data', 'data', 'data']))
+            .concat(get(resp, ['data', 'data']))
             .concat(rootState.home.data.list.slice(payload.ignoreEndIndex - 1)),
         });
       }
@@ -58,8 +58,8 @@ export default {
       if (get(resp, ['data', 'success'])) {
         this.setFields({
           data: {
-            total: get(resp, ['data', 'data', 'totalCount']),
-            list: get(resp, ['data', 'data', 'data']),
+            total: get(resp, ['data', 'totalCount']),
+            list: get(resp, ['data', 'data']),
           },
         });
       }

@@ -1,8 +1,8 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import moment from 'moment';
 import styled from 'styled-components';
-import { useTranslation } from 'react-i18next';
-import SortIndicator from '@src/components/SortIndicator';
+// import { useTranslation } from 'react-i18next';
+// import SortIndicator from '@src/components/SortIndicator';
 import { Box } from '@src/components/uikit';
 import { Link } from 'react-router-dom';
 
@@ -44,7 +44,6 @@ const TickerRowStyled = styled.div`
 `;
 
 export default React.memo(function TickerRow({ ticker }) {
-  const { t } = useTranslation();
   const { expire, version, from, type, to, amount, gasUsed } = ticker;
 
   return (
@@ -56,7 +55,9 @@ export default React.memo(function TickerRow({ ticker }) {
           title={t('TX ID')}
           sortDirection={sortBy === 'bh' ? sortDirection : null}
         />*/}
-        {version}
+        <Link title={version} to={`/en/tx-info/${type}/${version}`}>
+          {version}
+        </Link>
       </Box>
       <div className="et">{moment(new Date(expire)).fromNow()}</div>
       <Box className="type" color="#215399">

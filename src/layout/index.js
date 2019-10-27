@@ -3,6 +3,10 @@ import { Box } from '@src/components/uikit';
 import Footer from '@src/layout/Footer';
 import Header from './Header';
 
+const routerShowMap = {
+  'tx-info': false, // todo
+};
+
 function Index({ children }) {
   return (
     <div className="wrapper">

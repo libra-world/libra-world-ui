@@ -78,3 +78,13 @@ export async function getAccountTXS(params = { currentPage: 1, sizePage: 10 }) {
     console.error('e', e);
   }
 }
+
+export async function getTXInfo(version) {
+  try {
+    const resp = await axios.get(`/api/tx_api/txInfo?${qs.stringify({ version })}`);
+    return resp;
+  } catch (e) {
+    // error
+    console.error('e', e);
+  }
+}

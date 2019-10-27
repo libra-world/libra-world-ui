@@ -1,12 +1,15 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import FooterNav from './FooterNav';
 import FooterRights from './FooterRights';
 
-export default function Footer() {
+function Footer({ location }) {
   return (
     <>
-      <FooterNav />
+      {!location.pathname.includes('tx-info') && <FooterNav />}
       <FooterRights />
     </>
   );
 }
+
+export default withRouter(Footer);
