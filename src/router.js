@@ -11,11 +11,6 @@ const AddressInformation = lazy(() => import('./pages/AddressInformation'));
 const TXInfo = lazy(() => import('./pages/TXInfo'));
 
 export default class RootRouter extends PureComponent {
-  async componentDidMount() {
-    const test = 'xxx';
-    console.log('test', test);
-  }
-
   render() {
     return (
       <Router>
