@@ -54,7 +54,7 @@ function Header(props) {
       </Box>
       <NavBox flex="1" justifyContent="center" alignItems="center">
         <Link to="/en">Explorer</Link>
-        <a href="">Compiler</a>
+        <a href="https://libra-x.io/ide">Compiler</a>
       </NavBox>
       <Flex width="350px" alignItems="center">
         <Dropdown

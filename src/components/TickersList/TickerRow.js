@@ -7,7 +7,7 @@ import { Box } from '@src/components/uikit';
 import { Link } from 'react-router-dom';
 
 const TickerRowStyled = styled.div`
-  font-size: 18px;
+  font-size: 14px;
   height: 100%;
   display: flex;
   align-items: center;

@@ -15,7 +15,7 @@ const MarketBox = styled(Box)`
 const TickersListStyled = styled(Box)`
   overflow: hidden;
 `;
-const ROW_HEIGHT = 70;
+const ROW_HEIGHT = 60;
 
 function HomePage() {
   const data = useSelector(state => state.home.data);
@@ -39,7 +39,7 @@ function HomePage() {
           sortBy={sortObj.sortBy}
           sortDirection={sortObj.sortDirection}
         />
-        <TickersListStyled height={data.total < 15 ? `${data.total * ROW_HEIGHT}px` : '700px'}>
+        <TickersListStyled height={data.total < 15 ? `${data.total * ROW_HEIGHT}px` : '600px'}>
           <TickersList {...data} onRowClick={onRowClick} onLoadMore={onLoadMore} />
         </TickersListStyled>
       </MarketBox>

@@ -4,6 +4,7 @@ import FormItem from '@src/components/FormItem';
 import moment from 'moment';
 import ArgItem from '@src/pages/TXInfo/ArgItem';
 import ContactEvents from '@src/pages/TXInfo/ContactEvents';
+import { Link } from 'react-router-dom';
 
 function UnknownType({ data }) {
   return (
@@ -27,13 +28,15 @@ function UnknownType({ data }) {
           help={null}
           status={null}
         >
-          {moment(new Date(data.expire)).fromNow()}
+          {data.expire ? `${moment(new Date(data.expire)).fromNow()}(${data.expire})` : ''}
         </FormItem>
         <FormItem px="40px" mb="30px" labelWidth="200px" label="TX Type" help={null} status={null}>
           {data.type}
         </FormItem>
         <FormItem px="40px" mb="30px" labelWidth="200px" label="From" help={null} status={null}>
-          {data.from}
+          <Link title={data.from} to={`/en/address-info/${data.from}`}>
+            <Box color="#215399">{data.from}</Box>
+          </Link>
         </FormItem>
         <FormItem
           px="40px"

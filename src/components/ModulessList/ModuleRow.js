@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Box } from '@src/components/uikit';
 
 const ModuleRowStyled = styled.div`
-  font-size: 18px;
+  font-size: 14px;
   height: 100%;
   display: flex;
   align-items: center;

@@ -7,7 +7,7 @@ import TickerRow from './TickerRow';
 
 const STATUS_LOADING = 1;
 const STATUS_LOADED = 2;
-const ROW_HEIGHT = 70;
+const ROW_HEIGHT = 60;
 const TickersListStyled = styled(List)`
   &.ReactVirtualized__Grid {
     -ms-overflow-style: none;

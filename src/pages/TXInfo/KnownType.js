@@ -24,7 +24,7 @@ function KnownType({ data }) {
         help={null}
         status={null}
       >
-        {moment(new Date(data.expire)).fromNow()}({data.expire})
+        {data.expire ? `${moment(new Date(data.expire)).fromNow()}(${data.expire})` : ''}
       </FormItem>
       <FormItem px="40px" mb="30px" labelWidth="200px" label="TX Type" help={null} status={null}>
         {data.type}

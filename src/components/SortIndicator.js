@@ -9,7 +9,7 @@ const SortIndicatorStyled = styled.div`
   align-items: center;
 
   .title {
-    line-height: 18px;
+    line-height: 14px;
   }
 
   .svg-sort {

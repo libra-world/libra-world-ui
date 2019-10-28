@@ -31,7 +31,7 @@ const TickersListStyled = styled(Box)`
   overflow: hidden;
   position: relative;
 `;
-const ROW_HEIGHT = 70;
+const ROW_HEIGHT = 60;
 
 function AddressInformation(props) {
   const amount = useSelector(state => state.addressInfoModel.amount);
