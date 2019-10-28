@@ -2,7 +2,7 @@ import React from 'react';
 import { Box } from '@src/components/uikit';
 import norecord from '@src/static/images/norecord.svg';
 
-function EmptyData({ message = 'No data', ...rest }) {
+function EmptyData({ message = 'No Data', ...rest }) {
   return (
     <Box color="lightBlack" textAlign="center" {...rest}>
       <Box display="inline-block" width="100px">

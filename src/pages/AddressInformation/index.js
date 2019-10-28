@@ -69,7 +69,7 @@ function AddressInformation(props) {
       <MarketBox width={['600px', '600px', '1200px']} m="0 auto 140px" p="26px 40px 20px">
         <Tabbar
           width="330px"
-          initialPage={1}
+          initialPage={0}
           active={tabName}
           tabs={tabsInit}
           onChange={onTabChange}
@@ -87,7 +87,13 @@ function AddressInformation(props) {
         ) : (
           <TickersListStyled
             height={
-              tabName === 'blobs' ? 'auto' : data.total ? `${data.total * ROW_HEIGHT}px` : '100px'
+              tabName === 'blobs'
+                ? 'auto'
+                : !data.total
+                ? '200px'
+                : data.total > 10
+                ? `${10 * ROW_HEIGHT}px`
+                : `${data.total * ROW_HEIGHT}px`
             }
           >
             {tabName === 'account_txs' && (
@@ -97,7 +103,9 @@ function AddressInformation(props) {
               <ModulesList {...data} onRowClick={onRowClick} onLoadMore={onLoadMore} />
             )}
             {tabName === 'blobs' && <BlobsList {...data} />}
-            {data.list?.length === 0 && <EmptyData position="absolute" />}}
+            {data.list?.length === 0 && (
+              <EmptyData position="absolute" left="calc(50% - 50px)" top="50px" />
+            )}
           </TickersListStyled>
         )}
       </MarketBox>

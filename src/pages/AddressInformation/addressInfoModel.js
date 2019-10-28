@@ -3,7 +3,7 @@ import get from 'lodash/get';
 
 export default {
   state: {
-    tabName: 'blobs',
+    tabName: 'account_txs',
     address: 'string', // 地址，对应页面的address
     amount: 0, // 该地址拥有的余额，对应libra balance
     authKey: 'string', //这个不需要展示

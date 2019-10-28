@@ -30,7 +30,7 @@ function TXInfo(props) {
           <Box color="#DA4931"> This is a Testnet transaction that has no actual value</Box>
         )}
       </Flex>
-      <Box width={['600px', '600px', '800px']} m="0 auto" py="56px">
+      <Box width={['600px', '600px', '800px']} m="0 auto" py="56px" minHeight="500px">
         {isIndeterminate ? (
           <Loading />
         ) : isKnown ? (

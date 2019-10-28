@@ -23,14 +23,14 @@ const ModuleRowStyled = styled.div`
   }
 `;
 
-export default React.memo(function ModuleRow({ ticker }) {
+export default React.memo(function ModuleRow({ ticker = {} }) {
   return (
     <ModuleRowStyled>
       <Box className="seq" color="#215399">
-        Module
+        {ticker.module}
       </Box>
-      <Box title={'ssss'} className="module">
-        97380cd7ebf9a173a3
+      <Box title={ticker.seq} className="module">
+        {ticker.seq}
       </Box>
     </ModuleRowStyled>
   );

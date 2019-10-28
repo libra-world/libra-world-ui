@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import { Box, Flex, Input, Dropdown } from '@src/components/uikit';
 import useHeader from './useHeader';
@@ -19,7 +19,7 @@ const NavBox = styled(Flex)`
   }
 `;
 
-function Header() {
+function Header(props) {
   const [val, setVal, onSearch] = useSearch(props.history);
   const { variant } = useHeader();
   const theme =
@@ -48,7 +48,9 @@ function Header() {
       color={theme.headerColor}
     >
       <Box width="90px">
-        <img width="100%" src={variant === 'dark' ? libraLight : libraDark} alt="logo" />
+        <Link to="/en">
+          <img width="100%" src={variant === 'dark' ? libraLight : libraDark} alt="logo" />
+        </Link>
       </Box>
       <NavBox flex="1" justifyContent="center" alignItems="center">
         <Link to="/en">Explorer</Link>
@@ -66,7 +68,7 @@ function Header() {
           }
         >
           <Box px="10px" lineHeight="40px" height="40px" width="100px" bg={theme.boxBg}>
-            Testnet <Icon type="angle-down" />
+            Testnet <Icon fontSize="12px" type="angle-down" />
           </Box>
         </Dropdown>
         <Input
@@ -82,8 +84,8 @@ function Header() {
               <Icon type="search" />
             </Box>
           }
-          onChange={val => {
-            setVal(val);
+          onChange={e => {
+            setVal(e.target.value);
           }}
           theme={{
             inputLabelTheme: {
@@ -106,4 +108,4 @@ function Header() {
   );
 }
 
-export default React.memo(Header);
+export default withRouter(React.memo(Header));

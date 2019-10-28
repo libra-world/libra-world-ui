@@ -70,7 +70,7 @@ export default React.memo(function TickerRow({ ticker }) {
       </Box>
       <Box className="to" color="#215399">
         <Link title={to} to={`/en/address-info/${to}`}>
-          {type === 'mint' ? 'Minter' : `${to?.slice(0, 10)}......${to?.slice(-9)}`}
+          {to && `${to?.slice(0, 10)}......${to?.slice(-9)}`}
         </Link>
       </Box>
       <div className="amount">{amount}</div>

@@ -12,15 +12,10 @@ function ArgItem({ args = [] }) {
   const [showMore, setShowMore] = React.useState(false);
   return (
     <Box>
-      <Flex justifyContent="space-between" px="30px">
-        <Box color="#C1C1C1">Args List</Box>
-        <ActionBox
-          flex="0 0 100px"
-          mt="30px"
-          color="#215399"
-          onClick={() => setShowMore(!showMore)}
-        >
-          {showMore ? 'Show Less' : 'Show More'}
+      <Flex justifyContent="space-between" px="30px" mb="10px">
+        <Box ml="10px">Args List</Box>
+        <ActionBox flex="0 0 100px" color="#215399" onClick={() => setShowMore(!showMore)}>
+          {showMore ? 'Show Less ' : 'Show More '}
           <Icon fontSize="12px" type={showMore ? 'angle-up' : 'angle-down'} />
         </ActionBox>
       </Flex>

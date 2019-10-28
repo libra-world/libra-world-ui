@@ -24,19 +24,19 @@ function KnownType({ data }) {
         help={null}
         status={null}
       >
-        {moment(new Date(data.expire)).fromNow()}
+        {moment(new Date(data.expire)).fromNow()}({data.expire})
       </FormItem>
       <FormItem px="40px" mb="30px" labelWidth="200px" label="TX Type" help={null} status={null}>
         {data.type}
       </FormItem>
       <FormItem px="40px" mb="30px" labelWidth="200px" label="From" help={null} status={null}>
         <Link title={data.from} to={`/en/address-info/${data.from}`}>
-          {type === 'mint' ? 'Minter' : `${data.from?.slice(0, 10)}......${data.from?.slice(-9)}`}
+          <Box color="#215399">{data.from}</Box>
         </Link>
       </FormItem>
       <FormItem px="40px" mb="30px" labelWidth="200px" label="To" help={null} status={null}>
         <Link title={data.to} to={`/en/address-info/${data.to}`}>
-          {type === 'mint' ? 'Minter' : `${data.to?.slice(0, 10)}......${data.to?.slice(-9)}`}
+          <Box color="#215399">{data.to}</Box>
         </Link>
       </FormItem>
       <FormItem
@@ -88,7 +88,9 @@ function KnownType({ data }) {
         label="Signed Signature Hash"
         help={null}
         status={null}
-      ></FormItem>
+      >
+        {data.sigHash}
+      </FormItem>
       <FormItem
         px="40px"
         mb="30px"

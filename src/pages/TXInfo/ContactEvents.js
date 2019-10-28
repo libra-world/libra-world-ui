@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import FormItem from '@src/components/FormItem';
 import { Box, Flex } from '@src/components/uikit';
 import Icon from '@src/components/Icon';
+import EmptyData from '@src/components/EmptyData';
 
 const ActionBox = styled(Box)`
   cursor: pointer;
@@ -15,11 +16,13 @@ function ContactEvents({ events = [] }) {
       <Flex justifyContent="space-between" px="40px" py="30px">
         <Box color="#C1C1C1">Contact events</Box>
         <ActionBox flex="0 0 100px" color="#215399" onClick={() => setShowMore(!showMore)}>
-          {showMore ? 'Show Less' : 'Show More'}
+          {showMore ? 'Show Less ' : 'Show More '}
           <Icon fontSize="12px" type={showMore ? 'angle-up' : 'angle-down'} />
         </ActionBox>
       </Flex>
-      {showMore ? (
+      {!events?.length ? (
+        <EmptyData />
+      ) : showMore ? (
         events.map(event => (
           <>
             <FormItem px="40px" mb="30px" labelWidth="200px" label="Key" help={null} status={null}>
