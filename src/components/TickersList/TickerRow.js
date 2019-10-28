@@ -68,8 +68,10 @@ export default React.memo(function TickerRow({ ticker }) {
           {type === 'mint' ? 'Minter' : `${from?.slice(0, 10)}......${from?.slice(-9)}`}
         </Link>
       </Box>
-      <Box as="a" title={to} className="to" color="#215399">
-        {to && `${to.slice(0, 10)}......${to.slice(-9)}`}
+      <Box className="to" color="#215399">
+        <Link title={to} to={`/en/address-info/${to}`}>
+          {type === 'mint' ? 'Minter' : `${to?.slice(0, 10)}......${to?.slice(-9)}`}
+        </Link>
       </Box>
       <div className="amount">{amount}</div>
       <div className="fx-fee">{gasUsed}</div>

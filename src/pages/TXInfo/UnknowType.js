@@ -35,9 +35,6 @@ function UnknownType({ data }) {
         <FormItem px="40px" mb="30px" labelWidth="200px" label="From" help={null} status={null}>
           {data.from}
         </FormItem>
-        <FormItem px="40px" mb="30px" labelWidth="200px" label="To" help={null} status={null}>
-          {data.to}
-        </FormItem>
         <FormItem
           px="40px"
           mb="30px"
@@ -45,7 +42,9 @@ function UnknownType({ data }) {
           label="Transaction Fee"
           help={null}
           status={null}
-        ></FormItem>
+        >
+          {data.gasUsed}
+        </FormItem>
         <FormItem
           px="40px"
           mb="30px"
@@ -80,11 +79,11 @@ function UnknownType({ data }) {
           px="40px"
           mb="30px"
           labelWidth="200px"
-          label="Max Gas Price"
+          label="Max Gas Amount"
           help={null}
           status={null}
         >
-          {data.maxGasPrice}
+          {data.maxGasAmount}
         </FormItem>
         <FormItem
           px="40px"
@@ -93,7 +92,9 @@ function UnknownType({ data }) {
           label="Signed Signature Hash"
           help={null}
           status={null}
-        ></FormItem>
+        >
+          {data.sigHash}
+        </FormItem>
         <FormItem
           px="40px"
           mb="30px"

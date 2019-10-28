@@ -29,7 +29,7 @@ function ContactEvents({ events = [] }) {
               px="40px"
               mb="30px"
               labelWidth="200px"
-              label="Amount"
+              label="RawEvents"
               help={null}
               status={null}
             >

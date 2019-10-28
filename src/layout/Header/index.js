@@ -6,6 +6,7 @@ import useHeader from './useHeader';
 import Icon from '@src/components/Icon';
 import libraLight from '@src/static/images/logo-white.png';
 import libraDark from '@src/static/images/logo-dark.png';
+import useSearch from '@src/hooks/useSearch';
 
 const HeaderBox = styled(Flex)`
   transition: all 0.5s;
@@ -19,6 +20,7 @@ const NavBox = styled(Flex)`
 `;
 
 function Header() {
+  const [val, setVal, onSearch] = useSearch(props.history);
   const { variant } = useHeader();
   const theme =
     variant === 'dark'
@@ -49,9 +51,8 @@ function Header() {
         <img width="100%" src={variant === 'dark' ? libraLight : libraDark} alt="logo" />
       </Box>
       <NavBox flex="1" justifyContent="center" alignItems="center">
-        <Link to="/en">Home</Link>
-        <Link to="/en/address">Transactions</Link>
-        <Link to="/en/address">Faucet</Link>
+        <Link to="/en">Explorer</Link>
+        <a href="">Compiler</a>
       </NavBox>
       <Flex width="350px" alignItems="center">
         <Dropdown
@@ -59,33 +60,30 @@ function Header() {
           overlay={
             <Box width="100px" bg={theme.boxBg}>
               <Box px="plus" py="xs">
-                aaaa
-              </Box>
-              <Box px="plus" py="xs">
-                aaaa
+                Testnet
               </Box>
             </Box>
           }
         >
           <Box px="10px" lineHeight="40px" height="40px" width="100px" bg={theme.boxBg}>
-            Mainnet <Icon type="down" />
+            Testnet <Icon type="angle-down" />
           </Box>
         </Dropdown>
         <Input
           placeholder="Search tx/block/address"
-          value=""
+          value={val}
           id="test"
           ariaLabel="string"
           vertical={false}
           isActive={true}
           rtl={false}
           suffixAddon={
-            <Box mx="8px">
+            <Box mx="8px" onClick={onSearch}>
               <Icon type="search" />
             </Box>
           }
           onChange={val => {
-            console.log(val);
+            setVal(val);
           }}
           theme={{
             inputLabelTheme: {

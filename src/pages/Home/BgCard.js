@@ -1,21 +1,11 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+import useSearch from '@src/hooks/useSearch';
 import { Box, Button, Input } from '@src/components/uikit';
 import libra from '@src/static/images/logo-white.png';
-import { useSelector } from 'react-redux';
-import store from '@src/store';
-import { useDebounce } from 'react-use';
 
 function BgCard(props) {
-  const searchString = useSelector(state => state.home.searchString);
-  const [val, setVal] = React.useState(searchString);
-  useDebounce(
-    () => {
-      store.dispatch.home.setSearch(val);
-    },
-    300,
-    [val]
-  );
-
+  const [val, setVal, onSearch] = useSearch(props.history);
   return (
     <Box bg="#000" width="100%">
       <Box m="0 auto" pt="80px" textAlign="center">
@@ -31,7 +21,7 @@ function BgCard(props) {
           isActive={true}
           rtl={false}
           suffixAddon={
-            <Button variant="primary" size="large">
+            <Button variant="primary" size="large" onClick={onSearch}>
               Search
             </Button>
           }
@@ -49,4 +39,4 @@ function BgCard(props) {
   );
 }
 
-export default React.memo(BgCard);
+export default withRouter(React.memo(BgCard));

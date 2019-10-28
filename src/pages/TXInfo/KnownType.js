@@ -1,7 +1,8 @@
 import React from 'react';
 import { Box } from '@src/components/uikit';
-import FormItem from '@src/components/FormItem';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
+import FormItem from '@src/components/FormItem';
 
 function KnownType({ data }) {
   return (
@@ -29,10 +30,14 @@ function KnownType({ data }) {
         {data.type}
       </FormItem>
       <FormItem px="40px" mb="30px" labelWidth="200px" label="From" help={null} status={null}>
-        {data.from}
+        <Link title={data.from} to={`/en/address-info/${data.from}`}>
+          {type === 'mint' ? 'Minter' : `${data.from?.slice(0, 10)}......${data.from?.slice(-9)}`}
+        </Link>
       </FormItem>
       <FormItem px="40px" mb="30px" labelWidth="200px" label="To" help={null} status={null}>
-        {data.to}
+        <Link title={data.to} to={`/en/address-info/${data.to}`}>
+          {type === 'mint' ? 'Minter' : `${data.to?.slice(0, 10)}......${data.to?.slice(-9)}`}
+        </Link>
       </FormItem>
       <FormItem
         px="40px"
@@ -41,7 +46,9 @@ function KnownType({ data }) {
         label="Transaction Fee"
         help={null}
         status={null}
-      ></FormItem>
+      >
+        {data.gasUsed}
+      </FormItem>
       <FormItem
         px="40px"
         mb="30px"

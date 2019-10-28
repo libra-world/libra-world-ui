@@ -12,6 +12,7 @@ import useAddressData from './useAddressData';
 import Loading from '@src/components/Loading';
 import { useSelector } from 'react-redux';
 import ModulesList from '@src/components/ModulessList';
+import EmptyData from '@src/components/EmptyData';
 import BlobsList from './BlobsList';
 
 const tabsInit = [
@@ -28,6 +29,7 @@ const MarketBox = styled(Box)`
 `;
 const TickersListStyled = styled(Box)`
   overflow: hidden;
+  position: relative;
 `;
 const ROW_HEIGHT = 70;
 
@@ -95,6 +97,7 @@ function AddressInformation(props) {
               <ModulesList {...data} onRowClick={onRowClick} onLoadMore={onLoadMore} />
             )}
             {tabName === 'blobs' && <BlobsList {...data} />}
+            {data.list?.length === 0 && <EmptyData position="absolute" />}}
           </TickersListStyled>
         )}
       </MarketBox>

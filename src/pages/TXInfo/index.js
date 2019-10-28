@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Box, Flex } from '@src/components/uikit';
 import { getTXInfo } from '@src/util/request';
+import Loading from '@src/components/Loading';
 import get from 'lodash/get';
 import UnknowType from './UnknowType';
 import KnownType from './KnownType';
@@ -15,7 +16,9 @@ function TXInfo(props) {
       }
     });
   }, []);
-  const isKnown = /transfer|create|mint/.test(get(props, ['match', 'params', 'txType']));
+  const type = data.type || get(props, ['match', 'params', 'txType']);
+  const isIndeterminate = type === 'indeterminate';
+  const isKnown = /transfer|create|mint/.test(type);
   return (
     <Box bg="#f7f8fa">
       {/* <BreadCrumb /> */}
@@ -28,7 +31,13 @@ function TXInfo(props) {
         )}
       </Flex>
       <Box width={['600px', '600px', '800px']} m="0 auto" py="56px">
-        {isKnown ? <KnownType data={data} /> : <UnknowType data={data} />}
+        {isIndeterminate ? (
+          <Loading />
+        ) : isKnown ? (
+          <KnownType data={data} />
+        ) : (
+          <UnknowType data={data} />
+        )}
       </Box>
     </Box>
   );
