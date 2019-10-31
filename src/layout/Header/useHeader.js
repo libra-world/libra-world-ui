@@ -3,7 +3,7 @@ import usePageOffset from '@src/hooks/usePageOffset';
 
 export default function useHeader() {
   const { scrollTop } = usePageOffset();
-  const isScroll = scrollTop > 100;
+  const isScroll = scrollTop > 60;
   const variant = React.useMemo(() => {
     return isScroll ? 'light' : 'dark';
   }, [isScroll]);

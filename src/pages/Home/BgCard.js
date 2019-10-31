@@ -8,12 +8,12 @@ function BgCard(props) {
   const [val, setVal, onSearch] = useSearch(props.history);
   return (
     <Box bg="#000" width="100%">
-      <Box m="0 auto" pt="80px" textAlign="center">
-        <img src={libra} alt="logo" />
+      <Box width="150px" m="0 auto" pt="60px" textAlign="center">
+        <Box as="img" width="100%" src={libra} alt="logo" />
       </Box>
-      <Box width={['400px', '600px', '800px']} m="0 auto" pb="100px">
+      <Box width={['400px', '600px', '800px']} m="0 auto" pb="40px">
         <Input
-          placeholder="Search Transactions, blocks, andresses, ENS…"
+          placeholder="Search Transactions, addresses"
           value={val}
           id="test"
           ariaLabel="string"
@@ -21,7 +21,7 @@ function BgCard(props) {
           isActive={true}
           rtl={false}
           suffixAddon={
-            <Button variant="primary" size="large" onClick={onSearch}>
+            <Button width="160px" variant="primary" size="large" onClick={onSearch}>
               Search
             </Button>
           }
@@ -30,7 +30,7 @@ function BgCard(props) {
           }}
           theme={{
             inputLabelTheme: {
-              p: '20px',
+              p: '16px',
             },
           }}
         />

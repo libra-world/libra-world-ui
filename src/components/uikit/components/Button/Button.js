@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { borderRadius, buttonStyle, space, fontSize, variant } from 'styled-system';
+import { borderRadius, buttonStyle, space, fontSize, width, variant } from 'styled-system';
 
 const buttonSize = variant({
   prop: 'size',
@@ -7,6 +7,7 @@ const buttonSize = variant({
 });
 
 const Button = styled('button')`
+  ${width}
   ${borderRadius}
   ${buttonStyle}
   ${space}

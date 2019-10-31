@@ -19,6 +19,10 @@ const NavBox = styled(Flex)`
   }
 `;
 
+const DisableFlex = styled(Flex)`
+  cursor: not-allowed;
+`;
+
 function Header(props) {
   const [val, setVal, onSearch] = useSearch(props.history);
   const { variant } = useHeader();
@@ -41,23 +45,30 @@ function Header(props) {
       zIndex="10"
       bg={theme.headerBg}
       as="header"
-      px="40px"
-      height="100px"
+      px="18px"
+      height="50px"
       alignItems="center"
       width="100%"
       color={theme.headerColor}
     >
-      <Box width="90px">
+      <Box width="70px" position="relative">
         <Link to="/en">
-          <img width="100%" src={variant === 'dark' ? libraLight : libraDark} alt="logo" />
+          <Box
+            as="img"
+            position="relative"
+            top="10px"
+            width="100%"
+            src={variant === 'dark' ? libraLight : libraDark}
+            alt="logo"
+          />
         </Link>
       </Box>
-      <NavBox flex="1" justifyContent="center" alignItems="center">
+      <NavBox flex="1" alignItems="center">
         <Link to="/en">Explorer</Link>
         <a href="https://libra-x.io/ide">Compiler</a>
       </NavBox>
       <Flex width="350px" alignItems="center">
-        <Dropdown
+        {/* <Dropdown
           trigger="click"
           overlay={
             <Box width="100px" bg={theme.boxBg}>
@@ -67,12 +78,22 @@ function Header(props) {
             </Box>
           }
         >
-          <Box px="10px" lineHeight="40px" height="40px" width="100px" bg={theme.boxBg}>
+          <Flex justifyContent="space-between" px="10px" lineHeight="32px" height="32px" width="100px" bg={theme.boxBg}>
             Testnet <Icon fontSize="12px" type="angle-down" />
-          </Box>
-        </Dropdown>
+          </Flex>
+        </Dropdown>*/}
+        <DisableFlex
+          justifyContent="space-between"
+          px="10px"
+          lineHeight="32px"
+          height="32px"
+          width="100px"
+          bg={theme.boxBg}
+        >
+          Testnet <Icon fontSize="12px" type="angle-down" />
+        </DisableFlex>
         <Input
-          placeholder="Search tx/block/address"
+          placeholder="Search tx/address"
           value={val}
           id="test"
           ariaLabel="string"
@@ -92,7 +113,7 @@ function Header(props) {
               background: theme.boxBg,
               border: 'none',
               bg: theme.boxBg,
-              py: '12px',
+              py: '8px',
               pl: '20px',
               mx: '10px',
               width: '240px',

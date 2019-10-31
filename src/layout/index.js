@@ -11,7 +11,7 @@ function Index({ children }) {
   return (
     <div className="wrapper">
       <Header />
-      <Box as="main" mt="100px">
+      <Box as="main" mt="50px">
         {children}
       </Box>
       <Footer />
