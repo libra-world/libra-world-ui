@@ -10,7 +10,7 @@ function FooterRights(props) {
       alignItems="center"
       justifyContent="space-between"
     >
-      <Box>© 2019 LibraExplorer. All rights reserved.</Box>
+      <Box>© 2019 LibraX. All rights reserved.</Box>
       <Flex as="ul">
         <Box as="li" ml="40px">
           <a href="https://twitter.com/libexplorerHQ" target="_blank">

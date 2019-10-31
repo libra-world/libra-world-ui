@@ -32,11 +32,13 @@ function Header(props) {
           headerBg: 'black',
           headerColor: 'white',
           boxBg: '#222',
+          boxShadow: 'none',
         }
       : {
           headerBg: 'white',
           headerColor: 'black',
           boxBg: 'rgba(247,248,250)',
+          boxShadow: '0px 2px 20px 0px rgba(66,49,140,0.1)',
         };
   return (
     <HeaderBox
@@ -50,6 +52,7 @@ function Header(props) {
       alignItems="center"
       width="100%"
       color={theme.headerColor}
+      boxShadow={theme.boxShadow}
     >
       <Box width="70px" position="relative">
         <Link to="/en">
