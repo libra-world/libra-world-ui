@@ -14,7 +14,7 @@ const theme = {
 
 export default function ThemeProvider(props) {
   return (
-    <StyledThemeProvider theme={theme} {...props}>
+    <StyledThemeProvider themes={theme} {...props}>
       <>
         <ThemeGlobalStyle />
         {props.children}

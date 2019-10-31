@@ -4,7 +4,7 @@ import get from 'lodash/get';
 export default {
   state: {
     data: {
-      total: 10,
+      total: 0,
       list: [],
     },
   },
@@ -26,23 +26,14 @@ export default {
   },
   effects: {
     async requestTransactionTXList(payload = { page: 1, pageSize: 10 }, rootState) {
-      // 数据已经全部获取
-      if (rootState.home.data.list.length === rootState.home.data.total) return;
       const resp = await getTransactionTXList({
         currentPage: payload.page,
         sizePage: payload.pageSize,
-        search: rootState.home.searchString,
       });
-      console.log('ignoreStartIndex', payload.ignoreStartIndex);
-      console.log('ignoreEndIndex', payload.ignoreEndIndex);
-      // todo slice(0, payload.ignoreStartIndex) .length < ignoreStartIndex 时， 需要数据补全 or 迁至 imutable
       if (get(resp, ['success'])) {
         this.setData({
           total: get(resp, ['data', 'totalCount']),
-          list: rootState.home.data.list
-            .slice(0, payload.ignoreStartIndex)
-            .concat(get(resp, ['data', 'data']))
-            .concat(rootState.home.data.list.slice(payload.ignoreEndIndex - 1)),
+          list: get(resp, ['data', 'data']),
         });
       }
     },

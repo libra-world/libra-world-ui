@@ -1624,6 +1624,39 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
+"@zendeskgarden/container-pagination@^0.1.10":
+  version "0.1.15"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-pagination/-/container-pagination-0.1.15.tgz#05ab7621fb84a846831e931be5bd79f09025deb5"
+  integrity sha512-3PdsIYdFNfS8ScIKZzm23xAksqGTeInh+bbgMVib5QAYzf63U24p9MyouDNocAd7TohtxP4epOlFiz9QRvhqnA==
+  dependencies:
+    "@zendeskgarden/container-selection" "^1.2.2"
+
+"@zendeskgarden/container-selection@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-selection/-/container-selection-1.2.2.tgz#8447eb0a1e998c19bb4821202989cbd61a3a81a2"
+  integrity sha512-9lkfSUccX9KXZNctEzY7BliYKkcNTyDB+6/AavpAyBCyG/TeucwNtCeb+kB/VaEHpTa5vMoKOyO7ufVkwERODw==
+  dependencies:
+    "@zendeskgarden/container-utilities" "^0.3.0"
+
+"@zendeskgarden/container-utilities@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.3.0.tgz#9af748ef4b29f8a57f082852d039b9aaa98cf0d3"
+  integrity sha512-oZLNiJoHLznZBIASScfxanxylvczTm06HRWBqcdiiGDMSJYW0HySSlEUQFlaQqsvTwzrm02hWKGnr5cdWWtE0w==
+
+"@zendeskgarden/react-pagination@^7.0.2":
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-pagination/-/react-pagination-7.0.2.tgz#88c3eabeafc1bc42fe1885e431c08a21ae98e188"
+  integrity sha512-5p4I/7pkxOEfpIe+zTELYXf+D9CSDavWdVT2wXB48D+xJ3Z+N9x0qf0LWPHBq60bMnpXSwggzV4S3fMRxfoG6Q==
+  dependencies:
+    "@zendeskgarden/container-pagination" "^0.1.10"
+    "@zendeskgarden/container-utilities" "^0.3.0"
+    classnames "^2.2.5"
+
+"@zendeskgarden/react-theming@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-7.0.0.tgz#0dd53a742d8d72e1c7ededa1419d223cce6abae5"
+  integrity sha512-kOgw0fXrgvyUSfRvOpJpSofdwgUyAuT5V1cr4nhPzkAM/s2rX9rbt9A8G1MrUoMAcfdgZvthXNJWGNipN0cmhA==
+
 abab@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/abab/-/abab-2.0.1.tgz#3fa17797032b71410ec372e11668f4b4ffc86a82"
@@ -2654,6 +2687,11 @@ class-utils@^0.3.5:
     define-property "^0.2.5"
     isobject "^3.0.0"
     static-extend "^0.1.1"
+
+classnames@^2.2.5:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
+  integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
 
 clean-css@4.2.x:
   version "4.2.1"

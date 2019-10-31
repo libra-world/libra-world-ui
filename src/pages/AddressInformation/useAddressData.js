@@ -38,16 +38,16 @@ function useAddressData(tabName, address) {
 
   React.useEffect(() => {
     async function forLoading() {
-      const params = {
-        address,
-        page: 1,
-        pageSize: 10,
-      };
+      // const params = {
+      //   address,
+      //   page: 1,
+      //   pageSize: 10,
+      // };
       store.dispatch.addressInfoModel.requestAccountInfo(address);
-      store.dispatch.addressInfoModel.requestModulesData(params);
-      setLoading('requesting');
-      await store.dispatch.addressInfoModel.requestTxsData(params);
-      setLoading('finished');
+      // store.dispatch.addressInfoModel.requestModulesData(params);
+      // setLoading('requesting');
+      // await store.dispatch.addressInfoModel.requestTxsData(params);
+      // setLoading('finished');
     }
     forLoading();
   }, [address]);

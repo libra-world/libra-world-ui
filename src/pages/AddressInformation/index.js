@@ -82,32 +82,19 @@ function AddressInformation(props) {
             sortDirection={sortObj.sortDirection}
           />
         )}
-        {loadingStatus !== 'finished' ? (
-          <Loading />
-        ) : (
-          <TickersListStyled
-            height={
-              tabName === 'blobs'
-                ? 'auto'
-                : !data.total
-                ? '200px'
-                : data.total > 10
-                ? `${10 * ROW_HEIGHT}px`
-                : `${data.total * ROW_HEIGHT}px`
-            }
-          >
-            {tabName === 'account_txs' && (
-              <TickersList {...data} onRowClick={onRowClick} onLoadMore={onLoadMore} />
-            )}
-            {tabName === 'account_modules' && (
-              <ModulesList {...data} onRowClick={onRowClick} onLoadMore={onLoadMore} />
-            )}
-            {tabName === 'blobs' && <BlobsList {...data} />}
-            {data.list?.length === 0 && (
-              <EmptyData position="absolute" left="calc(50% - 50px)" top="50px" />
-            )}
-          </TickersListStyled>
-        )}
+        {loadingStatus !== 'finished' && <Loading />}
+        <Box minHeight="200px" position="relative">
+          {tabName === 'account_txs' && (
+            <TickersList {...data} onRowClick={onRowClick} onLoadMore={onLoadMore} />
+          )}
+          {tabName === 'account_modules' && (
+            <ModulesList {...data} onRowClick={onRowClick} onLoadMore={onLoadMore} />
+          )}
+          {tabName === 'blobs' && <BlobsList {...data} />}
+          {data.list?.length === 0 && (
+            <EmptyData position="absolute" left="calc(50% - 50px)" top="50px" />
+          )}
+        </Box>
       </MarketBox>
     </>
   );

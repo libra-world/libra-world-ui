@@ -8,10 +8,11 @@ import { Link } from 'react-router-dom';
 
 const TickerRowStyled = styled.div`
   font-size: 14px;
-  height: 100%;
+  height: 70px;
   display: flex;
   align-items: center;
   padding: 0 16px;
+  border-bottom: 1px solid #f7f8fa;
   .tx-id {
     flex: 0 1 110px;
     overflow: hidden;

@@ -39,9 +39,7 @@ function HomePage() {
           sortBy={sortObj.sortBy}
           sortDirection={sortObj.sortDirection}
         />
-        <TickersListStyled height={data.total < 15 ? `${data.total * ROW_HEIGHT}px` : '600px'}>
-          <TickersList {...data} onRowClick={onRowClick} onLoadMore={onLoadMore} />
-        </TickersListStyled>
+        <TickersList {...data} onRowClick={onRowClick} onLoadMore={onLoadMore} />
       </MarketBox>
     </>
   );

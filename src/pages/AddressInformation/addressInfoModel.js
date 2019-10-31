@@ -65,28 +65,16 @@ export default {
       this.setFields(data);
     },
     async requestTxsData(payload = { page: 1, pageSize: 10 }, rootState) {
-      // 数据已经全部获取
-      // if (rootState.addressInfoModel.txsData.list.length === rootState.addressInfoModel.txsData.total) return;
       const resp = await getAccountTXS({
         address: payload.address,
         currentPage: payload.page,
         sizePage: payload.pageSize,
       });
-      console.log('ignoreStartIndex', payload.ignoreStartIndex);
-      console.log('ignoreEndIndex', payload.ignoreEndIndex);
 
-      const ignoreStartIndex = payload.ignoreStartIndex || 0;
-      const ignoreEndIndex = payload.ignoreEndIndex || 10;
-
-      console.log('resp', resp);
-      // todo slice(0, payload.ignoreStartIndex) .length < ignoreStartIndex 时， 需要数据补全 or 迁至 imutable
       if (resp?.success) {
         this.setTxsData({
           total: get(resp, ['data', 'totalCount']),
-          list: rootState.addressInfoModel.txsData.list
-            .slice(0, ignoreStartIndex)
-            .concat(get(resp, ['data', 'data']))
-            .concat(rootState.addressInfoModel.txsData.list.slice(ignoreEndIndex - 1)),
+          list: get(resp, ['data', 'data']),
         });
       }
     },
