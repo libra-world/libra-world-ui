@@ -6,6 +6,7 @@ import Loading from '@src/components/Loading';
 import get from 'lodash/get';
 import UnknowType from './UnknowType';
 import KnownType from './KnownType';
+import Breadcrumb from '@src/components/Breadcrumb';
 
 function TXInfo(props) {
   const [data, setData] = React.useState({});
@@ -21,8 +22,13 @@ function TXInfo(props) {
   const isKnown = /transfer|create|mint/.test(type);
   return (
     <Box bg="#f7f8fa">
-      {/* <BreadCrumb /> */}
-      <Flex width={['600px', '600px', '1200px']} m="56px auto" pt="56px" alignItems="flex-end">
+      <Breadcrumb
+        pt="20px"
+        m="0 auto"
+        width={['600px', '600px', '1200px']}
+        list={[{ label: 'Address Information' }, { label: 'Transaction Details' }]}
+      />
+      <Flex width={['600px', '600px', '1200px']} m="56px auto" alignItems="flex-end">
         <Box as="h1" my="0" mr="10px">
           Transaction Details
         </Box>

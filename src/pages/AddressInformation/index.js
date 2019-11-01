@@ -14,6 +14,7 @@ import { useSelector } from 'react-redux';
 import ModulesList from '@src/components/ModulessList';
 import EmptyData from '@src/components/EmptyData';
 import BlobsList from './BlobsList';
+import Breadcrumb from '@src/components/Breadcrumb';
 
 const tabsInit = [
   { title: 'Sent txs', name: 'account_txs' },
@@ -54,8 +55,13 @@ function AddressInformation(props) {
 
   return (
     <>
-      {/* <BreadCrumb /> */}
-      <Box width={['600px', '600px', '1200px']} m="56px auto" pt="56px">
+      <Breadcrumb
+        pt="20px"
+        m="0 auto"
+        width={['600px', '600px', '1200px']}
+        list={[{ label: 'Address Information' }]}
+      />
+      <Box width={['600px', '600px', '1200px']} m="56px auto">
         <Box as="h1" my="14px">
           Address Information
         </Box>
