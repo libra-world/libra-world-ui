@@ -9,6 +9,7 @@ import Loading from '@src/components/Loading';
 const HomePage = lazy(() => import('./pages/Home'));
 const AddressInformation = lazy(() => import('./pages/AddressInformation'));
 const TXInfo = lazy(() => import('./pages/TXInfo'));
+const DetailSearch = lazy(() => import('./pages/DetailSearch'));
 
 export default class RootRouter extends PureComponent {
   render() {
@@ -23,6 +24,7 @@ export default class RootRouter extends PureComponent {
                 <Route exact={true} path="/:locale" component={HomePage} />
                 <Route path="/:locale/address-info/:address" component={AddressInformation} />
                 <Route path="/:locale/tx-info/:txType/:version" component={TXInfo} />
+                <Route path="/:locale/detail/:searchString" component={DetailSearch} />
               </Suspense>
             </Layout>
           </ErrorBoundary>

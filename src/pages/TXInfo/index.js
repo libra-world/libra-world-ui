@@ -10,14 +10,15 @@ import Breadcrumb from '@src/components/Breadcrumb';
 
 function TXInfo(props) {
   const [data, setData] = React.useState({});
+  const version = props.version || get(props, ['match', 'params', 'version']);
   React.useEffect(() => {
-    getTXInfo(get(props, ['match', 'params', 'version'])).then(resp => {
+    getTXInfo(version).then(resp => {
       if (resp.success) {
         setData(resp.data);
       }
     });
-  }, []);
-  const type = data.type || get(props, ['match', 'params', 'txType']);
+  }, [version]);
+  const type = data.type || props.txType || get(props, ['match', 'params', 'txType']);
   const isIndeterminate = type === 'indeterminate';
   const isKnown = /transfer|create|mint/.test(type);
   return (

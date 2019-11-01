@@ -47,11 +47,8 @@ function AddressInformation(props) {
   }, []);
 
   const onRowClick = () => {};
-
-  const [data, onLoadMore, loadingStatus] = useAddressData(
-    tabName,
-    get(props, ['match', 'params', 'address'])
-  );
+  const address = props.address || get(props, ['match', 'params', 'address']);
+  const [data, onLoadMore, loadingStatus] = useAddressData(tabName, address);
 
   return (
     <>
@@ -66,7 +63,7 @@ function AddressInformation(props) {
           Address Information
         </Box>
         <Flex justifyContent="space-between" alignItems="flex-start">
-          <Box>{get(props, ['match', 'params', 'address'])}</Box>
+          <Box>{address}</Box>
           <Box>Libra Balance: {amount} LIB</Box>
         </Flex>
       </Box>
