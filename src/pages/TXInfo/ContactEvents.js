@@ -4,19 +4,21 @@ import FormItem from '@src/components/FormItem';
 import { Box, Flex } from '@src/components/uikit';
 import Icon from '@src/components/Icon';
 import EmptyData from '@src/components/EmptyData';
+import { useTranslation } from 'react-i18next';
 
 const ActionBox = styled(Box)`
   cursor: pointer;
 `;
 
 function ContactEvents({ events = [] }) {
+  const { t } = useTranslation();
   const [showMore, setShowMore] = React.useState(false);
   return (
     <Box bg="#fff" pb="30px" mt="30px">
       <Flex justifyContent="space-between" px="40px" py="30px">
-        <Box color="#C1C1C1">Contact events</Box>
+        <Box color="#C1C1C1">{t('Contact events')}</Box>
         <ActionBox flex="0 0 100px" color="#215399" onClick={() => setShowMore(!showMore)}>
-          {showMore ? 'Show Less ' : 'Show More '}
+          {showMore ? t('Show Less') : t('Show More')}
           <Icon fontSize="12px" type={showMore ? 'angle-up' : 'angle-down'} />
         </ActionBox>
       </Flex>
@@ -25,14 +27,21 @@ function ContactEvents({ events = [] }) {
       ) : showMore ? (
         events.map(event => (
           <>
-            <FormItem px="40px" mb="30px" labelWidth="200px" label="Key" help={null} status={null}>
+            <FormItem
+              px="40px"
+              mb="30px"
+              labelWidth="200px"
+              label={t('Key')}
+              help={null}
+              status={null}
+            >
               {event.key}
             </FormItem>
             <FormItem
               px="40px"
               mb="30px"
               labelWidth="200px"
-              label="RawEvents"
+              label={t('RawEvents')}
               help={null}
               status={null}
             >
@@ -42,7 +51,7 @@ function ContactEvents({ events = [] }) {
               px="40px"
               mb="30px"
               labelWidth="200px"
-              label="Index"
+              label={t('Index')}
               help={null}
               status={null}
             >
@@ -53,14 +62,35 @@ function ContactEvents({ events = [] }) {
         ))
       ) : (
         <>
-          <FormItem px="40px" mb="30px" labelWidth="200px" label="Key" help={null} status={null}>
+          <FormItem
+            px="40px"
+            mb="30px"
+            labelWidth="200px"
+            label={t('Key')}
+            help={null}
+            status={null}
+          >
             {events[0]?.key}
           </FormItem>
 
-          <FormItem px="40px" mb="30px" labelWidth="200px" label="Amount" help={null} status={null}>
+          <FormItem
+            px="40px"
+            mb="30px"
+            labelWidth="200px"
+            label={t('Amount')}
+            help={null}
+            status={null}
+          >
             {events[0]?.rawEvent}
           </FormItem>
-          <FormItem px="40px" mb="30px" labelWidth="200px" label="Index" help={null} status={null}>
+          <FormItem
+            px="40px"
+            mb="30px"
+            labelWidth="200px"
+            label={t('Index')}
+            help={null}
+            status={null}
+          >
             {events[0]?.index}
           </FormItem>
         </>

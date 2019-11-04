@@ -5,8 +5,10 @@ import moment from 'moment';
 import ArgItem from '@src/pages/TXInfo/ArgItem';
 import ContactEvents from '@src/pages/TXInfo/ContactEvents';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 function UnknownType({ data }) {
+  const { t } = useTranslation();
   return (
     <Box width={['400px', '600px', '800px']} m="0 auto" pb="100px">
       <Box bg="#fff" py="30px">
@@ -14,7 +16,7 @@ function UnknownType({ data }) {
           px="40px"
           mb="30px"
           labelWidth="200px"
-          label="Version ID"
+          label={t('Version ID')}
           help={null}
           status={null}
         >
@@ -24,16 +26,30 @@ function UnknownType({ data }) {
           px="40px"
           mb="30px"
           labelWidth="200px"
-          label="Expiration Time"
+          label={t('Expiration Time')}
           help={null}
           status={null}
         >
           {data.expire ? `${moment(new Date(data.expire)).fromNow()}(${data.expire})` : ''}
         </FormItem>
-        <FormItem px="40px" mb="30px" labelWidth="200px" label="TX Type" help={null} status={null}>
+        <FormItem
+          px="40px"
+          mb="30px"
+          labelWidth="200px"
+          label={t('TX Type')}
+          help={null}
+          status={null}
+        >
           {data.type}
         </FormItem>
-        <FormItem px="40px" mb="30px" labelWidth="200px" label="From" help={null} status={null}>
+        <FormItem
+          px="40px"
+          mb="30px"
+          labelWidth="200px"
+          label={t('From')}
+          help={null}
+          status={null}
+        >
           <Link title={data.from} to={`/en/address-info/${data.from}`}>
             <Box color="#215399">{data.from}</Box>
           </Link>
@@ -42,7 +58,7 @@ function UnknownType({ data }) {
           px="40px"
           mb="30px"
           labelWidth="200px"
-          label="Transaction Fee"
+          label={t('Transaction Fee')}
           help={null}
           status={null}
         >
@@ -52,7 +68,7 @@ function UnknownType({ data }) {
           px="40px"
           mb="30px"
           labelWidth="200px"
-          label="Sequence Number"
+          label={t('Sequence Number')}
           help={null}
           status={null}
         >
@@ -65,14 +81,21 @@ function UnknownType({ data }) {
 
         <Box height="1px" bg="#f7f8fa" mb="30px" />
 
-        <FormItem px="40px" mb="30px" labelWidth="200px" label="Gas Used" help={null} status={null}>
+        <FormItem
+          px="40px"
+          mb="30px"
+          labelWidth="200px"
+          label={t('Gas Used')}
+          help={null}
+          status={null}
+        >
           {data.gasUsed}
         </FormItem>
         <FormItem
           px="40px"
           mb="30px"
           labelWidth="200px"
-          label="Gas Price"
+          label={t('Gas Price')}
           help={null}
           status={null}
         >
@@ -82,7 +105,7 @@ function UnknownType({ data }) {
           px="40px"
           mb="30px"
           labelWidth="200px"
-          label="Max Gas Amount"
+          label={t('Max Gas Amount')}
           help={null}
           status={null}
         >
@@ -92,7 +115,7 @@ function UnknownType({ data }) {
           px="40px"
           mb="30px"
           labelWidth="200px"
-          label="Signed Signature Hash"
+          label={t('Signed Signature Hash')}
           help={null}
           status={null}
         >
@@ -102,7 +125,7 @@ function UnknownType({ data }) {
           px="40px"
           mb="30px"
           labelWidth="200px"
-          label="State Root Hash"
+          label={t('State Root Hash')}
           help={null}
           status={null}
         >
@@ -112,7 +135,7 @@ function UnknownType({ data }) {
           px="40px"
           mb="30px"
           labelWidth="200px"
-          label="Event Root Hash"
+          label={t('Event Root Hash')}
           help={null}
           status={null}
         >

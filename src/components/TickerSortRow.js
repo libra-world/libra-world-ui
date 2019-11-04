@@ -54,12 +54,12 @@ export default React.memo(({ onSortChange, sortBy, sortDirection }) => {
         />*/}
         TX ID
       </div>
-      <div className="et">Expiration Time</div>
-      <div className="type">Type</div>
-      <div className="from">From</div>
-      <div className="to">To</div>
-      <div className="amount">Amount</div>
-      <div className="fx-fee">Fx Fee</div>
+      <div className="et">{t('Expiration Time')}</div>
+      <div className="type">{t('Type')}</div>
+      <div className="from">{t('From')}</div>
+      <div className="to">{t('To')}</div>
+      <div className="amount">{t('Amount')}</div>
+      <div className="fx-fee">{t('Fx Fee')}</div>
     </TickerSortRowStyled>
   );
 });

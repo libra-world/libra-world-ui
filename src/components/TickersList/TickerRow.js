@@ -49,7 +49,7 @@ export default React.memo(function TickerRow({ ticker }) {
 
   return (
     <TickerRowStyled>
-      <Box className="tx-id" as="a" color="#215399">
+      <Box className="tx-id" color="#215399">
         {/*<SortIndicator
           sortBy="bh"
           onSort={_onSort}

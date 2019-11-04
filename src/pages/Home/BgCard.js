@@ -3,8 +3,10 @@ import { withRouter } from 'react-router-dom';
 import useSearch from '@src/hooks/useSearch';
 import { Box, Button, Input } from '@src/components/uikit';
 import libra from '@src/static/images/logo-white.png';
+import { useTranslation } from 'react-i18next';
 
 function BgCard(props) {
+  const { t } = useTranslation();
   const [val, setVal, onSearch] = useSearch(props.history);
   return (
     <Box bg="#000" width="100%">
@@ -13,7 +15,7 @@ function BgCard(props) {
       </Box>
       <Box width={['400px', '600px', '800px']} m="0 auto" pb="40px">
         <Input
-          placeholder="Search Transactions, addresses"
+          placeholder={t('Search Transactions, addresses')}
           value={val}
           id="test"
           ariaLabel="string"
@@ -22,7 +24,7 @@ function BgCard(props) {
           rtl={false}
           suffixAddon={
             <Button width="160px" variant="primary" size="large" onClick={onSearch}>
-              Search
+              {t('Search')}
             </Button>
           }
           onChange={e => {

@@ -10,8 +10,6 @@ export default {
   },
   reducers: {
     setData(prevState, payload) {
-      console.log('prevState', prevState);
-      console.log('payload', payload);
       return {
         ...prevState,
         data: payload,

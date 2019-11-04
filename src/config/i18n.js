@@ -9,19 +9,21 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: 'cn',
-    debug: false,
+    debug: true,
+    // defaultNS: 'default',
+    // ns: 'default',
 
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
 
     // backend option
-    backend: {
-      loadPath: 'http://xxx.com',
-      allowMultiLoading: false,
-      crossDomain: true,
-      withCredentials: false,
-    },
+    // backend: {
+    //   loadPath: '/api/translation/{{lng}}.json',
+    //   allowMultiLoading: false,
+    //   crossDomain: true,
+    //   withCredentials: false,
+    // },
 
     // LanguageDetector options
     detection: {
@@ -31,5 +33,8 @@ i18n
       // lookupLocalStorage: 'lang',
     },
   });
+
+// i18n.addResourceBundle('en', 'default', require('../locales/en'));
+// i18n.addResourceBundle('cn', 'default', require('../locales/cn'));
 
 export default i18n;

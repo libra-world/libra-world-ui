@@ -15,26 +15,14 @@ import ModulesList from '@src/components/ModulessList';
 import EmptyData from '@src/components/EmptyData';
 import BlobsList from './BlobsList';
 import Breadcrumb from '@src/components/Breadcrumb';
-
-const tabsInit = [
-  { title: 'Sent txs', name: 'account_txs' },
-  { title: 'Blobs', name: 'blobs' },
-  {
-    title: 'Modules',
-    name: 'account_modules',
-  },
-];
+import { useTranslation } from 'react-i18next';
 
 const MarketBox = styled(Box)`
   box-shadow: ${({ theme }) => theme.colors.boxShadow};
 `;
-const TickersListStyled = styled(Box)`
-  overflow: hidden;
-  position: relative;
-`;
-const ROW_HEIGHT = 60;
 
 function AddressInformation(props) {
+  const { t } = useTranslation();
   const amount = useSelector(state => state.addressInfoModel.amount);
   const [sortObj, setSortObj] = React.useState({
     sortBy: 'qv',
@@ -50,21 +38,33 @@ function AddressInformation(props) {
   const address = props.address || get(props, ['match', 'params', 'address']);
   const [data, onLoadMore, loadingStatus] = useAddressData(tabName, address);
 
+  const tabsInit = React.useMemo(
+    () => [
+      { title: t('Sent txs'), name: 'account_txs' },
+      { title: t('Blobs'), name: 'blobs' },
+      {
+        title: t('Modules'),
+        name: 'account_modules',
+      },
+    ],
+    [t]
+  );
+
   return (
     <>
       <Breadcrumb
         pt="20px"
         m="0 auto"
         width={['600px', '600px', '1200px']}
-        list={[{ label: 'Address Information' }]}
+        list={[{ label: t('Address Information') }]}
       />
       <Box width={['600px', '600px', '1200px']} m="56px auto">
         <Box as="h1" my="14px">
-          Address Information
+          {t('Address Information')}
         </Box>
         <Flex justifyContent="space-between" alignItems="flex-start">
           <Box>{address}</Box>
-          <Box>Libra Balance: {amount} LIB</Box>
+          <Box>{t('Libra Balance: #amount# LIB')?.replace('#amount#', amount)}</Box>
         </Flex>
       </Box>
       <Summary />
@@ -95,7 +95,12 @@ function AddressInformation(props) {
           )}
           {tabName === 'blobs' && <BlobsList {...data} />}
           {data.list?.length === 0 && (
-            <EmptyData position="absolute" left="calc(50% - 50px)" top="50px" />
+            <EmptyData
+              message={t('No Data')}
+              position="absolute"
+              left="calc(50% - 50px)"
+              top="50px"
+            />
           )}
         </Box>
       </MarketBox>

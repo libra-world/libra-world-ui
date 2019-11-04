@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
-import get from 'lodash/get';
 import BgCard from '@src/pages/Home/BgCard';
 import { Box } from '@src/components/uikit';
 import TickerSortRow from '@src/components/TickerSortRow';
@@ -12,10 +11,6 @@ import store from '@src/store';
 const MarketBox = styled(Box)`
   box-shadow: ${({ theme }) => theme.colors.boxShadow};
 `;
-const TickersListStyled = styled(Box)`
-  overflow: hidden;
-`;
-const ROW_HEIGHT = 60;
 
 function HomePage() {
   const data = useSelector(state => state.home.data);
@@ -27,7 +22,6 @@ function HomePage() {
   const onLoadMore = React.useCallback(async params => {
     await store.dispatch.home.requestTransactionTXList(params);
   }, []);
-  console.log('data', data);
 
   return (
     <>

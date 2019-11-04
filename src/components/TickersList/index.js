@@ -18,7 +18,7 @@ function Index({ total = 0, list = [], onLoadMore }) {
     <Box>
       <Box minHeight="300px">
         {list.map(ticker => (
-          <TickerRow ticker={ticker} />
+          <TickerRow key={ticker.version} ticker={ticker} />
         ))}
       </Box>
       {pageCount > 0 && (

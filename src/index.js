@@ -8,7 +8,7 @@ import './static/icon/iconfont.css';
 
 import RootRouter from './router';
 import store from './store';
-// import '@src/config/i18n';
+import '@src/config/i18n';
 
 const rootElement = document.getElementById('root');
 

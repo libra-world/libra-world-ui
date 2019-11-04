@@ -1,7 +1,8 @@
 import React from 'react';
-import { Box, Flex } from '@src/components/uikit';
+import { Box } from '@src/components/uikit';
 import styled from 'styled-components';
 import Icon from '@src/components/Icon';
+import { useTranslation } from 'react-i18next';
 
 const ActionBox = styled(Box)`
   cursor: pointer;
@@ -12,6 +13,7 @@ const ShowMoreBox = styled(Box)`
 `;
 
 function BlobItem({ list = [] }) {
+  const { t } = useTranslation();
   const [showMore, setShowMore] = React.useState(false);
   return (
     <Box position="relative" alignItems="flex-start">
@@ -32,7 +34,8 @@ function BlobItem({ list = [] }) {
         color="#215399"
         onClick={() => setShowMore(!showMore)}
       >
-        {showMore ? 'Show Less ' : 'Show More '}
+        {showMore ? t('Show Less') : t('Show More')}
+        &nbsp;
         <Icon fontSize="12px" type={showMore ? 'angle-up' : 'angle-down'} />
       </ActionBox>
     </Box>
