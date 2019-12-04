@@ -68,7 +68,7 @@ function Header(props) {
       </Box>
       <NavBox flex="1" alignItems="center">
         <Link to="/en">Explorer</Link>
-        <a href="https://libra-x.io/ide">Compiler</a>
+        <a href="/ide/">Compiler</a>
       </NavBox>
       <Flex width="350px" alignItems="center">
         {/* <Dropdown
