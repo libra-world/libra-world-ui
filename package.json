@@ -8,7 +8,7 @@
     "@styled-system/css": "^5.0.23",
     "@zendeskgarden/react-pagination": "^7.0.2",
     "@zendeskgarden/react-theming": "^7.0.0",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "bignumber.js": "^9.0.0",
     "color": "latest",
     "husky": "^3.0.5",
